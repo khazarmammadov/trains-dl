@@ -121,7 +121,7 @@ def main() -> None:
     html_body = re.sub(r"<p><em>((?:Figure|Table)[^<]*)</em></p>", r'<p class="caption">\1</p>', html_body)
     head = (f'<div class="title">{meta.get("title", "")}</div>'
             f'<div class="subtitle">{meta.get("subtitle", "")}</div>'
-            f'<div class="meta">{meta.get("author", "")} · {meta.get("date", "")}</div>')
+            f'<div class="meta">{meta.get("author", "")}</div>')
     html = (f'<!doctype html><html><head><meta charset="utf-8"><style>{CSS}</style></head>'
             f"<body>{head}{html_body}</body></html>")
     html_path = REPORT / "report.html"

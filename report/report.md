@@ -1,8 +1,7 @@
 ---
 title: "Concept Induction on Michalski's Trains: What Description-Logic Learning Can and Cannot Do"
 subtitle: "Symbolic Learning — Project Report"
-author: "Team 6: Khazar Mammadov, Turan Abbasli"
-date: "November 2026"
+author: "Team 6: Khazar Mammadov, Turan Abbasli · November 2026"
 ---
 
 # 1. Introduction
@@ -114,7 +113,7 @@ with the classic rule, and Michie's labels agree 24/24 with the published offici
    `hasCar only {c1,…,cn}`; for every wagon, `hasLoad only {l1,…}` (or `only ⊥`);
    for the last wagon, `inFrontOf only ⊥`; and `AllDifferent` over all
    individuals. With these axioms, ∀- and ¬-statements about the data become
-   *entailed* under the open-world assumption (Section 6.4).
+   *entailed* under the open-world assumption (Sections 6.5 and 7.3).
 
 # 4. Learning problem
 
@@ -416,8 +415,26 @@ rule is not).
 
 # Contributions of each member
 
-* **Khazar Mammadov.** [TO FILL: one paragraph describing what Khazar did.]
-* **Turan Abbasli.** [TO FILL: one paragraph describing what Turan did.]
+**Khazar Mammadov.** Khazar built the symbolic side of the pipeline: parsing the
+UCI Trains files and Michie's 24-train challenge into a common relational format,
+generating the synthetic and noisy trains, and checking the parsed labels against the
+published rules. Khazar designed the OWL ontology (class hierarchy, object and data
+properties, the closure-axiom variant), set up DL-Learner, wrote the experiment
+runner that generates the `.conf` files for every setting and fold, wrote the
+closed-world evaluator that scores learned concepts on held-out trains, and ran the
+open-world (HermiT) experiments.
+
+**Turan Abbasli.** Turan built the comparison and the analysis, implementing the
+decision-tree and random-forest baselines on the positional and aggregate encodings,
+using the same folds as DL-Learner, and writing the evaluation script that pools the
+metrics and produces the tables and figures. Turan analysed the learned concepts (which
+are meaningful, spurious, trivial or overly long), compared performance and
+interpretability with the baselines, and led the writing of the report and the
+presentation.
+
+**Both.** We chose the dataset and the learning problems together, and discussed the
+interpretation of the results, in particular the open- vs closed-world behaviour and
+the limits of the hypothesis language.
 
 # References
 
