@@ -3,7 +3,7 @@
 # Usage: ./make_submission.sh [group-name]
 set -euo pipefail
 cd "$(dirname "$0")"
-NAME="${1:-trains-concept-induction}"
+NAME="${1:-Team6_Mammadov_Abbasli_ConceptInduction}"
 OUT="submission/$NAME"
 rm -rf submission && mkdir -p "$OUT"
 cp -R README.md requirements.txt make_submission.sh src ontology conf data tools "$OUT"/
