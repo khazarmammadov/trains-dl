@@ -60,12 +60,15 @@ def summarise(df: pd.DataFrame, kind: str) -> pd.DataFrame:
             row["acc_fold_mean"], row["acc_fold_std"] = accs.mean(), accs.std()
         if ds.endswith("_noise10") and "test_pred" in folds:
             preds = [x.split(":") for s in folds["test_pred"].dropna() for x in s.split()]
-            row["acc_true_labels"] = sum(int(v) == truth[i] for i, v in preds) / len(preds)
+            row["acc_true_labels"] = (sum(int(v) == truth[i] for i, v in preds) / len(preds)
+                                      if preds else float("nan"))
         if kind == "DL-Learner":
             full = g[g["fold"] == "full"]
             row.update(
                 length=folds["length"].astype(float).mean(),
                 tested=folds["tested"].astype(float).mean(),
+                fallback=int(folds["fallback"].astype(str).eq("True").sum()) if "fallback" in folds else 0,
+                errors=int(folds["error"].notna().sum()) if "error" in folds else 0,
                 n_distinct=folds["concept"].nunique(),
                 modal_concept=folds["concept_dl"].mode().iat[0] if folds["concept_dl"].notna().any() else None,
                 full_concept=full["concept_dl"].iat[0] if len(full) else None,

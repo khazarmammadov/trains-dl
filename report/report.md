@@ -14,7 +14,22 @@ We apply DL-Learner [1] to the UCI *Trains* data [2], a small but genuinely
 **relational** benchmark. We compare it with decision trees and random forests,
 and we ask what the logical representation buys us.
 
-<!-- RESULTS-INTRO -->
+**Main findings.**
+
+1. When the target is an existential pattern over parts ("some wagon is short and
+   closed"), DL-Learner recovers it **exactly** from 10 trains: leave-one-out
+   accuracy 0.90–1.00, against 0.40–0.70 for trees and forests. On 200 synthetic
+   trains it reaches 1.00, against at most 0.92.
+2. With label noise, DL-Learner's noise parameter is decisive. Without it, CELOE
+   overfits (0.58). With `noisePercentage=10` it returns the **true** concept, scoring 1.00
+   against the clean labels, where the best forest scores 0.84.
+3. On Michie's harder 24-train problem, a *restricted* hypothesis language (no ¬/∀)
+   reaches 0.875, beating all baselines (best 0.79). Its official rule needs "two
+   adjacent wagons with the **same** load shape". That kind of variable binding is
+   outside ALC, and no setting finds it.
+4. Under the open-world assumption with HermiT, learning is 2–3 orders of magnitude
+   slower. Without closure axioms, the ∀/¬ concepts that the closed-world reasoner exploits
+   are not entailed.
 
 # 2. Dataset
 
@@ -127,7 +142,263 @@ no datatypes/cardinalities; EL only). Inverse roles, nominals and hasValue are o
 **Length** follows DL-Learner's metric: atom = 1, ¬C = 1+|C|, C⊓D = |C|+|D|+1,
 ∃r.C = 2+|C|, ≥n r.C = 3+|C|, ∃d.range = 3.
 
-<!-- SECTIONS 5+ ARE FILLED IN FROM results/summary.md -->
+# 5. Experimental settings
+
+All runs use DL-Learner 1.5.0 (`tools/dlcli.sh`), positive/negative learning
+(`posNegStandard`) and predictive accuracy. Each setting changes **one** parameter
+relative to the reference `celoe_alc`. The generated `.conf` files are in
+`conf/<setting>/<dataset>/`, and `src/run_experiments.py` regenerates and runs everything.
+
+| setting | algorithm | reasoner | language (ρ operator) | time | noise |
+|---|---|---|---|---|---|
+| **celoe_alc** (reference) | CELOE | closed world | ALC + ≥/≤ + ∃d.[range] | 5 s | 0 % |
+| celoe_no_neg_all | CELOE | closed world | no ¬, no ∀ | 5 s | 0 % |
+| celoe_no_data_card | CELOE | closed world | no datatypes, no cardinalities | 5 s | 0 % |
+| eltl_el | ELTL | closed world | EL (⊓, ∃ only) | 5 s | 0 % |
+| ocel_alc | OCEL | closed world | as reference | 5 s | 0 % |
+| celoe_t1 / celoe_t20 | CELOE | closed world | as reference | 1 s / 20 s | 0 % |
+| celoe_noise10 | CELOE | closed world | as reference | 5 s | 10 % |
+| owa_hermit_open | CELOE | HermiT (OWA) | as reference, open ontology | 5 s | 0 % |
+| owa_hermit_closed | CELOE | HermiT (OWA) | as reference, closure ontology | 5 s | 0 % |
+| owa_hermit_*_t60 | CELOE | HermiT (OWA) | as above | 60 s | 0 % |
+
+*Table 2 – experimental settings. HermiT settings are run on the two small sets only.*
+
+In total there are 456 + 22 DL-Learner runs (folds plus one full-data run per setting and
+dataset), executed 4 in parallel on a laptop (8 cores, 8 GB RAM).
+**Baselines** (`src/baselines.py`): CART decision tree and a random forest (200 trees),
+both with scikit-learn defaults and `random_state=0`, on two propositionalisations:
+*positional* (one column per wagon slot × attribute, like UCI's transformed file)
+and *aggregate* (per-train counts of each attribute value, with no conjunctions, so the
+target is not handed over).
+
+# 6. Results
+
+Full tables are in `results/summary.md`. Figure 1 compares the main settings.
+
+![Test accuracy per method and dataset](../results/fig_test_accuracy.png)
+
+*Figure 1 – test accuracy (pooled over folds). Blue: DL-Learner; orange: classical ML; dashed: chance.*
+
+## 6.1 Michalski's 10 trains (leave-one-out)
+
+| method | test acc | prec | rec | F1 | length / nodes | time |
+|---|---|---|---|---|---|---|
+| CELOE (ALC, reference) | 0.90 | 0.83 | 1.00 | 0.91 | 5.0 | 7.6 s |
+| CELOE no ¬/∀ | **1.00** | 1.00 | 1.00 | 1.00 | 5.0 | 8.0 s |
+| ELTL (EL) | **1.00** | 1.00 | 1.00 | 1.00 | 5.8 | 8.0 s |
+| OCEL | **1.00** | 1.00 | 1.00 | 1.00 | 9.0 | 7.7 s |
+| HermiT OWA, open / closure (5 s) | 0.80 / 0.50 | | | | 3 / 1 | 8 / 12 s |
+| Decision tree, positional / aggregate | 0.40 / 0.50 | | | 0.25 / 0.62 | 4.8 / 5 nodes | <0.01 s |
+| Random forest, positional / aggregate | 0.70 / 0.60 | | | 0.73 / 0.67 | ~1000 nodes | 0.25 s |
+
+On all 10 trains, every closed-world CELOE/ELTL setting returns
+
+$$\textsf{Eastbound} \equiv \exists \textsf{hasCar}.(\textsf{ClosedCar} \sqcap \textsf{ShortCar})$$
+
+("a train goes east iff it has a short, closed wagon"). This is exactly the rule
+Michalski reported in 1977, with length 5. The single error of the reference
+setting is fold 8 (train I held out). On the remaining 9 trains, CELOE prefers the
+equally short but **spurious** ≥3 hasCar.¬JaggedTopCar ("at least 3 non-jagged
+wagons"). It fits the 9 training trains perfectly, and it ranks first because
+CELOE breaks accuracy ties by length and search order. Removing ¬/∀ (or using EL)
+removes this alternative, so the language restriction acts as a useful **bias**.
+OCEL also scores 1.00, but it returns a longer, redundant conjunct
+(… ⊓ ∃carCount.[≥3], length 9). Unlike CELOE it does not prefer short concepts.
+
+The decision trees are worse than chance on LOO. The full-data positional tree is
+*car3_load = none → west; else car4_shape = opentrap → west; else east*, which is
+consistent with the data and meaningless: with 10 rows and 70 columns,
+many positional coincidences separate the classes.
+
+## 6.2 Michie's 24 trains (leave-one-out)
+
+| method | test acc | prec | rec | F1 | mean length | distinct fold concepts |
+|---|---|---|---|---|---|---|
+| CELOE (ALC, reference) | 0.625 | 0.60 | 0.75 | 0.67 | 7.9 | 7 |
+| CELOE no ¬/∀ | **0.875** | 0.91 | 0.83 | **0.87** | 9.0 | 4 |
+| CELOE 20 s | **0.875** | 0.91 | 0.83 | **0.87** | 9.0 | 4 |
+| CELOE noise 10 % | 0.833 | 0.90 | 0.75 | 0.82 | 9.3 | 6 |
+| CELOE 1 s | 0.625 | 0.59 | 0.83 | 0.69 | 7.5 | 5 |
+| ELTL (EL) | 0.542 | 0.53 | 0.75 | 0.62 | 11.7 | 6 |
+| OCEL | 0.542 | 0.53 | 0.75 | 0.62 | 19.3 | 8 |
+| Decision tree, aggregate | 0.792 | 0.82 | 0.75 | 0.78 | 8.8 nodes | – |
+| Random forest, positional | 0.750 | 0.71 | 0.83 | 0.77 | ~2660 nodes | – |
+
+This target is harder: no concept reaches 100 % training accuracy within 5 s.
+The best concept (no ¬/∀, or 20 s) is
+
+$$\exists \textsf{hasCar}.(\textsf{DoubleWallCar} \sqcup \textsf{PeakedRoofCar} \sqcup (\textsf{ClosedCar} \sqcap \textsf{RectangleCar}))$$
+
+("some wagon has a double wall, a peaked roof, or is a closed rectangle"). It has 96 %
+training accuracy, and 21 of 24 folds return it. Its first two disjuncts (peaked roof,
+double wall) are the same conditions used by the human entries of Pennifold and Shaw
+in Michie's competition, and the peaked roof is half of the official rule. The official rule is *peaked roof ∨ two adjacent short wagons with the
+same load shape*. Its second part needs a **co-reference** between the loads
+of two wagons (the same shape *X*), which ALC/EL cannot express with one
+existential. It could only be written as a 6-way disjunction over the load shapes,
+⊔ₓ ∃hasCar.(ShortCar ⊓ ∃hasLoad.X ⊓ ∃inFrontOf.(ShortCar ⊓ ∃hasLoad.X)), of length
+well over 60, far beyond what the search reaches. ELTL comes closest structurally
+(∃hasCar.(ShortCar ⊓ ∃inFrontOf.ShortCar) appears in its concept) but overfits.
+
+With the full ALC language, 6 of 24 folds return ∀hasCar.(ClosedCar ⊔ ShortCar)
+("no wagon is long and open"). It is correct on most training trains, but it is a
+closed-world artefact (Section 7.3) and generalises poorly. With only 23 training examples,
+**a larger hypothesis space produces more spurious, equally accurate concepts**, and
+test accuracy falls from 0.875 to 0.625. Here the aggregate decision tree is a strong
+competitor (0.79). Its top split is *n_roof=peaked*, the same key feature.
+
+## 6.3 Synthetic trains (stratified 5-fold, 200 trains)
+
+**Clean labels.** All eight closed-world DL settings return
+∃hasCar.(ClosedCar ⊓ ShortCar) in every fold: the hidden rule is
+recovered exactly, with test accuracy 1.00. The best baseline (forest, positional) reaches
+0.92 with ~14,000 tree nodes. The single positional tree needs 45 nodes and depth 8 to
+approximate the rule slot by slot (*car4 short? car2 closed? …*). Search effort
+is small: CELOE tests only ≈1,000 candidates in 1 s and still finds the concept.
+
+**10 % label noise** (accuracy against the noisy test labels; the ceiling is ≈0.90):
+
+| method | test acc (noisy) | acc vs **true** labels | concept on all data |
+|---|---|---|---|
+| CELOE, noise 0 (reference) | 0.58 | 0.65 | ∃hasCar.ClosedCar ⊓ ∃hasCar.TwoWheelCar |
+| CELOE, 20 s | 0.60 | 0.68 | same |
+| OCEL | 0.65 | 0.71 | ∃hasCar.(ClosedCar ⊓ (ShortCar ⊔ (…))), length 15 |
+| **CELOE, noise 10 %** | **0.90** | **1.00** | **∃hasCar.(ClosedCar ⊓ ShortCar)** |
+| Random forest, aggregate | 0.74 | 0.84 | – |
+| Decision tree, aggregate | 0.69 | 0.74 | – |
+
+With `noisePercentage = 0`, CELOE keeps searching for a concept that covers the
+flipped examples. Within the time limit it settles on an over-general
+concept with high recall (0.96) and low precision (0.53). Telling the learner to tolerate
+10 % noise makes it accept the 90 %-accurate true rule. All 5 folds return the
+same concept, and it classifies every test train exactly as the clean
+rule does. The trees, which fit the training data perfectly (train acc 1.00),
+memorise the noise.
+
+## 6.4 Effect of the runtime budget, search algorithm and language
+
+![Runtime budget](../results/fig_time_budget.png)
+
+*Figure 2 – CELOE with 1, 5 and 20 s budgets.*
+
+* **Runtime.** On easy targets (Michalski, synthetic) 1 s is enough: CELOE finds the
+  length-5 solution after a few thousand candidates. On Michie, 1 s → 0.625,
+  5 s → 0.625, 20 s → 0.875. More search (≈155k candidates) reaches longer
+  disjunctive concepts. On noisy data more time does not help without the noise parameter
+  (0.58 → 0.60).
+* **Heuristic.** CELOE's length-penalised heuristic gives short concepts. OCEL
+  returns longer ones (mean length 9–19) and, with noise 0, it reports *no* solution
+  unless one is 100 % accurate. In 31 runs (Michie and noisy) we used its best
+  partial concept.
+* **Language.** Removing ¬/∀ never hurt and helped on Michie (+25 points).
+  Removing datatypes/cardinalities changed little (+4 points on Michie).
+  EL (ELTL) is fine for purely existential targets but cannot express the
+  disjunction needed for Michie.
+
+<!-- OWA-RESULTS -->
+
+# 7. Discussion
+
+## 7.1 Interpretability: would a domain expert accept the concepts?
+
+The DL concepts are short (length 5–9), read naturally in English, and are stated
+over the **objects of the domain** (trains, wagons, loads), not over column
+positions. "A train has a short closed wagon" and "some wagon has a peaked roof
+or a double wall" are the rules humans wrote in the original competitions. The
+decision trees are either brittle (positional splits such as "car 3 has no load")
+or opaque (forests with thousands of nodes). The aggregate tree on Michie is the
+exception: it is readable, but it uses counts ("≥3 rectangular wagons") rather than
+a description of a single wagon.
+
+## 7.2 Trivial, spurious and overly long solutions
+
+* **Trivial:** ⊤ or `Train` (50 %) is returned only when the search fails
+  (HermiT at 5 s).
+* **Spurious:** ≥3 hasCar.¬JaggedTopCar (Michalski fold 8), ∀hasCar.(Closed ⊔ Short)
+  (Michie), and ∃hasCar.ClosedCar ⊓ ∃hasCar.TwoWheelCar (noisy data). Each is short and
+  fits the training set, but it exploits accidents of a small or noisy sample. The
+  number of *distinct* concepts over folds is a cheap indicator: 1–2 for the
+  stable problems, 5–8 for Michie with the full language.
+* **Overly long / redundant:** OCEL's … ⊓ ∃carCount.[≥3] (Michalski) and
+  its length-19 concepts on Michie. Among the lower-ranked CELOE solutions there are also many
+  logically redundant variants (¬LongCar ⊓ ∃hasCar.(…), since a train is never a car).
+
+## 7.3 Open vs closed world
+
+DL-Learner's *closed world reasoner* materialises the ABox and applies negation as
+failure: ∀hasCar.C holds if all **known** wagons are in C, and ¬ShortCar holds for
+anything not asserted short. Under the OWA (HermiT), a train is an instance of
+∀hasCar.C only if the ontology **entails** that it has no other wagons. Without
+closure axioms this is never the case, so concepts such as ∀hasCar.(ClosedCar ⊔ ShortCar)
+cover no example. Negation is only entailed through our disjointness
+axioms (e.g. LongCar ⊑ ¬ShortCar). The existential concept ∃hasCar.(ClosedCar ⊓
+ShortCar) has the **same** extension under both semantics, which is why the main result does not
+depend on the closure assumption. To make OWA reasoning match the closed-world
+reading we built `*_closed.owl`, with `hasCar only {c1,…,cn}` per train,
+`hasLoad only {…}` per wagon, and `AllDifferent`. This makes ∀/¬ entailed, but
+reasoning with these nominals is very slow. On the full Michalski set, one instance
+retrieval costs < 1 ms with the closed-world reasoner, 14 ms with HermiT on the open
+ontology, and 212 ms with HermiT on the closure ontology. In 5 s CELOE therefore tests
+20,872, 167 and 14 candidate concepts, respectively.
+
+**Closure assumptions we made:** (i) DL-Learner's closed-world reasoner (closed-world
+semantics) for all main experiments; (ii) disjointness of sibling classes (in both
+ontologies); (iii) explicit closure axioms in the `_closed` ontologies only.
+
+## 7.4 What symbolic learning gave us that the baseline did not, and vice versa
+
+*Concept induction gave:*
+
+* **The relational bias for free.** "Some part has property P" is one ∃
+  restriction, whatever the number or order of wagons. A propositional learner must either
+  enumerate positions (positional encoding, which needs many examples) or rely on
+  hand-designed aggregates.
+* **Data efficiency.** It recovers the true rule from 9 examples, where trees are at chance.
+* **Exact, verifiable models** that coincide with the rules humans wrote, and that
+  can be checked against background knowledge (the open/closed hierarchy is used
+  directly as `ClosedCar`).
+* **A controllable bias:** language restrictions and the noise parameter mattered more
+  than raw search time.
+
+*The baselines gave:*
+
+* **Speed and robustness:** training in milliseconds versus 5–20 s per fold, and
+  no tuning. On noisy data with the wrong noise setting, the forests beat CELOE.
+* **Graded predictions and no hard expressivity wall:** a forest can approximate
+  any decision boundary, given enough data. DL-Learner fails outright when the target is outside the
+  language (Michie's co-reference rule) or when the reasoner is slow (OWA).
+* **No need to know the noise level** in advance. CELOE needed the correct
+  `noisePercentage` to shine.
+
+## 7.5 Limitations
+
+* The real datasets are tiny (10 and 24 trains). LOO estimates have large variance:
+  one train = 10 or 4 accuracy points. The synthetic study helps, but its target is,
+  by construction, expressible in the hypothesis language.
+* Test-set classification uses our closed-world evaluator. It matches the reasoner
+  used for learning in all closed-world settings, but for HermiT runs it
+  evaluates the learned concept under closed-world semantics.
+* We tested one noise level (10 %) and tuned no baseline hyper-parameters.
+* Each setting was run once. DL-Learner's search is deterministic for a given
+  configuration, but the runtime limit makes the result machine-dependent.
+
+# 8. Conclusion
+
+On the Trains problem, concept induction in description logics does what a
+propositional learner cannot. From ten examples it recovers the classic,
+human-readable rule ∃hasCar.(ClosedCar ⊓ ShortCar), and on 200 noisy trains it
+recovers the hidden rule exactly once told the noise level. Its weaknesses are just as clear:
+the result depends on the hypothesis-language bias (a richer language overfits small
+samples), on knowing the noise level, on the closed-world assumption for ∀/¬, and on
+the target being expressible in the logic at all (Michie's "same load shape"
+rule is not).
+
+# Contributions of each member
+
+* **<Member 1>.** <one paragraph: e.g. data parsing, ontology design, closure axioms …>
+* **<Member 2>.** <one paragraph: e.g. DL-Learner configuration, experiment runner, OWA study …>
+* **<Member 3>.** <one paragraph: e.g. baselines, evaluation, figures, report writing …>
 
 # References
 

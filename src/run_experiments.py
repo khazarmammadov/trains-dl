@@ -62,6 +62,10 @@ SETTINGS: dict[str, dict] = {
     # -- open vs closed world
     "owa_hermit_open": {"reasoner": "owa", "ontology": "open", "datasets": SMALL},
     "owa_hermit_closed": {"reasoner": "owa", "ontology": "closed", "datasets": SMALL},
+    "owa_hermit_closed_t60": {"reasoner": "owa", "ontology": "closed", "time": 60,
+                              "datasets": ["michalski10"]},
+    "owa_hermit_open_t60": {"reasoner": "owa", "ontology": "open", "time": 60,
+                            "datasets": ["michalski10"]},
 }
 
 
@@ -117,17 +121,26 @@ def make_conf(s: dict, dataset: str, pos: list[str], neg: list[str], conf_path: 
 # Output parsing
 # ---------------------------------------------------------------------------
 SOL_RE = re.compile(r"^\s*1:\s*(.+?)\s*\((?:pred\. acc\.|accuracy)[^()]*\)\s*$", re.M)
+BEST_RE = re.compile(r"more accurate \([\d.]+%\) class expression found(?: after [^:]*)?: (.+)$", re.M)
 TESTED_RE = re.compile(r"(\d+) descriptions tested")
 
 
 def parse_output(out: str) -> dict:
     i = out.rfind("solutions")
     m = SOL_RE.search(out, i if i >= 0 else 0)
-    concept = None
-    if m:  # strip prefixes / full IRIs (but keep the >= / <= facet operators!)
-        concept = re.sub(r"<[^<>\s]*#(\w+)>", r"\1", m.group(1)).replace("ex:", "")
+    concept, fallback = None, False
+    raw = m.group(1) if m else None
+    if raw is None:
+        # OCEL (noise 0) prints no solution list unless a 100%-accurate concept
+        # was found; fall back to the most accurate expression it reported.
+        acc = BEST_RE.findall(out)
+        if acc:
+            raw, fallback = acc[-1], True
+    if raw:  # strip prefixes / full IRIs (but keep the >= / <= facet operators!)
+        concept = re.sub(r"<[^<>\s]*#(\w+)>", r"\1", raw).replace("ex:", "")
     tested = TESTED_RE.findall(out)
-    return {"concept": concept, "tested": int(tested[-1]) if tested else None}
+    return {"concept": concept, "fallback": fallback,
+            "tested": int(tested[-1]) if tested else None}
 
 
 # ---------------------------------------------------------------------------
@@ -176,6 +189,7 @@ def run_one(s: dict, dataset: str, fold: str, train_ids, test_ids, labels) -> di
     row = {"setting": s["name"], "dataset": dataset, "fold": fold,
            "n_train": len(train_ids), "n_test": len(test_ids),
            "wall_s": round(wall, 2), "tested": parsed["tested"],
+           "fallback": parsed["fallback"],
            "concept": parsed["concept"], "concept_dl": None, "length": None, "depth": None,
            "train_acc": None}
     if parsed["concept"] is None:
@@ -205,7 +219,7 @@ def _evaluate(row, concept, dataset, train_ids, test_ids, labels) -> dict:
 FORCE = False
 
 FIELDS = ["setting", "dataset", "fold", "n_train", "n_test", "concept", "concept_dl",
-          "length", "depth", "train_acc", "tp", "tn", "fp", "fn", "wall_s", "tested",
+          "length", "depth", "train_acc", "tp", "tn", "fp", "fn", "wall_s", "tested", "fallback",
           "test_pred", "error"]
 
 
