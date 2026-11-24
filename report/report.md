@@ -1,15 +1,15 @@
 ---
 title: "Concept Induction on Michalski's Trains: What Description-Logic Learning Can and Cannot Do"
 subtitle: "Symbolic Learning — Project Report"
-author: "Group: <member 1>, <member 2>, <member 3>"
+author: "Team 6: Khazar Mammadov, Turan Abbasli"
 date: "November 2026"
 ---
 
 # 1. Introduction
 
-Concept induction learns a class expression $C$ from a knowledge base
-$\mathcal{O}=(\mathcal{T},\mathcal{A})$ and example sets $P$, $N$ such that
-$\mathcal{O}\models C(a)$ for $a\in P$ and $\mathcal{O}\not\models C(b)$ for $b\in N$.
+Concept induction learns a class expression *C* from a knowledge base
+𝒪 = (𝒯, 𝒜) and example sets *P*, *N* such that
+𝒪 ⊨ C(a) for every a ∈ P and 𝒪 ⊭ C(b) for every b ∈ N.
 We apply DL-Learner [1] to the UCI *Trains* data [2], a small but genuinely
 **relational** benchmark. We compare it with decision trees and random forests,
 and we ask what the logical representation buys us.
@@ -118,7 +118,7 @@ with the classic rule, and Michie's labels agree 24/24 with the published offici
 
 # 4. Learning problem
 
-**Target and examples.** $P$ = eastbound (resp. OK) trains and $N$ = the others,
+**Target and examples.** *P* = eastbound (resp. OK) trains and *N* = the others,
 using `posNegStandard`. The sets are balanced by construction.
 
 **Splits** (`src/splits.py`, `data/splits/`). Leave-one-out for the 10- and
@@ -196,7 +196,7 @@ Full tables are in `results/summary.md`. Figure 1 compares the main settings.
 
 On all 10 trains, every closed-world CELOE/ELTL setting returns
 
-$$\textsf{Eastbound} \equiv \exists \textsf{hasCar}.(\textsf{ClosedCar} \sqcap \textsf{ShortCar})$$
+<p class="formula">Eastbound ≡ ∃hasCar.(ClosedCar ⊓ ShortCar)</p>
 
 ("a train goes east iff it has a short, closed wagon"). This is exactly the rule
 Michalski reported in 1977, with length 5. The single error of the reference
@@ -209,7 +209,7 @@ OCEL also scores 1.00, but it returns a longer, redundant conjunct
 (… ⊓ ∃carCount.[≥3], length 9). Unlike CELOE it does not prefer short concepts.
 
 The decision trees are worse than chance on LOO. The full-data positional tree is
-*car3_load = none → west; else car4_shape = opentrap → west; else east*, which is
+"car3_load = none → west; else car4_shape = opentrap → west; else east", which is
 consistent with the data and meaningless: with 10 rows and 70 columns,
 many positional coincidences separate the classes.
 
@@ -230,7 +230,7 @@ many positional coincidences separate the classes.
 This target is harder: no concept reaches 100 % training accuracy within 5 s.
 The best concept (no ¬/∀, or 20 s) is
 
-$$\exists \textsf{hasCar}.(\textsf{DoubleWallCar} \sqcup \textsf{PeakedRoofCar} \sqcup (\textsf{ClosedCar} \sqcap \textsf{RectangleCar}))$$
+<p class="formula">∃hasCar.(DoubleWallCar ⊔ PeakedRoofCar ⊔ (ClosedCar ⊓ RectangleCar))</p>
 
 ("some wagon has a double wall, a peaked roof, or is a closed rectangle"). It has 96 %
 training accuracy, and 21 of 24 folds return it. Its first two disjuncts (peaked roof,
@@ -368,7 +368,7 @@ ontologies); (iii) explicit closure axioms in the `_closed` ontologies only.
 
 ## 7.4 What symbolic learning gave us that the baseline did not, and vice versa
 
-*Concept induction gave:*
+**Concept induction gave:**
 
 * **The relational bias for free.** "Some part has property P" is one ∃
   restriction, whatever the number or order of wagons. A propositional learner must either
@@ -381,7 +381,7 @@ ontologies); (iii) explicit closure axioms in the `_closed` ontologies only.
 * **A controllable bias:** language restrictions and the noise parameter mattered more
   than raw search time.
 
-*The baselines gave:*
+**The baselines gave:**
 
 * **Speed and robustness:** training in milliseconds versus 5–20 s per fold, and
   no tuning. On noisy data with the wrong noise setting, the forests beat CELOE.
@@ -416,14 +416,13 @@ rule is not).
 
 # Contributions of each member
 
-* **<Member 1>.** <one paragraph: e.g. data parsing, ontology design, closure axioms …>
-* **<Member 2>.** <one paragraph: e.g. DL-Learner configuration, experiment runner, OWA study …>
-* **<Member 3>.** <one paragraph: e.g. baselines, evaluation, figures, report writing …>
+* **Khazar Mammadov.** [TO FILL: one paragraph describing what Khazar did.]
+* **Turan Abbasli.** [TO FILL: one paragraph describing what Turan did.]
 
 # References
 
-[1] J. Lehmann. DL-Learner: Learning Concepts in Description Logics. *JMLR* 10, 2009.
-    J. Lehmann et al. Class expression learning for ontology engineering (CELOE). *J. Web Semantics* 9(1), 2011.
-[2] R.S. Michalski, J.B. Larson. Inductive inference of VL decision rules. *SIGART Newsletter* 63, 1977. UCI ML Repository, *Trains* dataset (id 103).
-[3] D. Michie, S. Muggleton, D. Page, A. Srinivasan. To the international computing community: a new East-West challenge. Oxford University Computing Laboratory, 1994.
-[4] J. Lehmann, P. Hitzler. Concept learning in description logics using refinement operators. *Machine Learning* 78, 2010.
+1. J. Lehmann. DL-Learner: Learning Concepts in Description Logics. *JMLR* 10, 2009;
+   J. Lehmann et al. Class expression learning for ontology engineering (CELOE). *J. Web Semantics* 9(1), 2011.
+2. R.S. Michalski, J.B. Larson. Inductive inference of VL decision rules. *SIGART Newsletter* 63, 1977. UCI ML Repository, *Trains* dataset (id 103).
+3. D. Michie, S. Muggleton, D. Page, A. Srinivasan. To the international computing community: a new East-West challenge. Oxford University Computing Laboratory, 1994.
+4. J. Lehmann, P. Hitzler. Concept learning in description logics using refinement operators. *Machine Learning* 78, 2010.
