@@ -1,0 +1,1223 @@
+{
+ "name": "michie24",
+ "target": "OK",
+ "description": "Michie's 24-train challenge (trains.supplement); positive = OK. Official rule: a car with a peaked roof, or two adjacent short cars with the same load shape.",
+ "trains": [
+  {
+   "id": "m1",
+   "label": 0,
+   "cars": [
+    {
+     "id": "m1_c1",
+     "pos": 1,
+     "shape": "u_shaped",
+     "length": "short",
+     "double": false,
+     "roof": "none",
+     "closed": false,
+     "wheels": 2,
+     "loads": [
+      "triangle"
+     ]
+    },
+    {
+     "id": "m1_c2",
+     "pos": 2,
+     "shape": "bucket",
+     "length": "short",
+     "double": false,
+     "roof": "none",
+     "closed": false,
+     "wheels": 2,
+     "loads": [
+      "circle"
+     ]
+    },
+    {
+     "id": "m1_c3",
+     "pos": 3,
+     "shape": "rectangle",
+     "length": "short",
+     "double": false,
+     "roof": "none",
+     "closed": false,
+     "wheels": 2,
+     "loads": [
+      "triangle"
+     ]
+    },
+    {
+     "id": "m1_c4",
+     "pos": 4,
+     "shape": "u_shaped",
+     "length": "short",
+     "double": false,
+     "roof": "none",
+     "closed": false,
+     "wheels": 2,
+     "loads": [
+      "circle"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "m2",
+   "label": 0,
+   "cars": [
+    {
+     "id": "m2_c1",
+     "pos": 1,
+     "shape": "rectangle",
+     "length": "long",
+     "double": false,
+     "roof": "jagged",
+     "closed": true,
+     "wheels": 2,
+     "loads": [
+      "circle"
+     ]
+    },
+    {
+     "id": "m2_c2",
+     "pos": 2,
+     "shape": "rectangle",
+     "length": "short",
+     "double": true,
+     "roof": "none",
+     "closed": false,
+     "wheels": 2,
+     "loads": [
+      "diamond"
+     ]
+    },
+    {
+     "id": "m2_c3",
+     "pos": 3,
+     "shape": "rectangle",
+     "length": "long",
+     "double": false,
+     "roof": "jagged",
+     "closed": true,
+     "wheels": 2,
+     "loads": [
+      "rectangle"
+     ]
+    },
+    {
+     "id": "m2_c4",
+     "pos": 4,
+     "shape": "rectangle",
+     "length": "long",
+     "double": false,
+     "roof": "flat",
+     "closed": true,
+     "wheels": 3,
+     "loads": [
+      "rectangle"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "m3",
+   "label": 0,
+   "cars": [
+    {
+     "id": "m3_c1",
+     "pos": 1,
+     "shape": "u_shaped",
+     "length": "short",
+     "double": false,
+     "roof": "none",
+     "closed": false,
+     "wheels": 2,
+     "loads": [
+      "circle"
+     ]
+    },
+    {
+     "id": "m3_c2",
+     "pos": 2,
+     "shape": "bucket",
+     "length": "short",
+     "double": false,
+     "roof": "flat",
+     "closed": true,
+     "wheels": 2,
+     "loads": [
+      "triangle"
+     ]
+    },
+    {
+     "id": "m3_c3",
+     "pos": 3,
+     "shape": "u_shaped",
+     "length": "short",
+     "double": false,
+     "roof": "none",
+     "closed": false,
+     "wheels": 2,
+     "loads": [
+      "circle"
+     ]
+    },
+    {
+     "id": "m3_c4",
+     "pos": 4,
+     "shape": "u_shaped",
+     "length": "short",
+     "double": false,
+     "roof": "none",
+     "closed": false,
+     "wheels": 2,
+     "loads": [
+      "rectangle"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "m4",
+   "label": 0,
+   "cars": [
+    {
+     "id": "m4_c1",
+     "pos": 1,
+     "shape": "ellipse",
+     "length": "short",
+     "double": false,
+     "roof": "arc",
+     "closed": true,
+     "wheels": 2,
+     "loads": [
+      "rectangle"
+     ]
+    },
+    {
+     "id": "m4_c2",
+     "pos": 2,
+     "shape": "rectangle",
+     "length": "long",
+     "double": false,
+     "roof": "none",
+     "closed": false,
+     "wheels": 3,
+     "loads": [
+      "hexagon",
+      "hexagon"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "m5",
+   "label": 0,
+   "cars": [
+    {
+     "id": "m5_c1",
+     "pos": 1,
+     "shape": "u_shaped",
+     "length": "short",
+     "double": false,
+     "roof": "none",
+     "closed": false,
+     "wheels": 2,
+     "loads": [
+      "circle"
+     ]
+    },
+    {
+     "id": "m5_c2",
+     "pos": 2,
+     "shape": "rectangle",
+     "length": "short",
+     "double": false,
+     "roof": "none",
+     "closed": false,
+     "wheels": 2,
+     "loads": [
+      "triangle"
+     ]
+    },
+    {
+     "id": "m5_c3",
+     "pos": 3,
+     "shape": "rectangle",
+     "length": "long",
+     "double": false,
+     "roof": "none",
+     "closed": false,
+     "wheels": 2,
+     "loads": [
+      "rectangle",
+      "rectangle",
+      "rectangle"
+     ]
+    },
+    {
+     "id": "m5_c4",
+     "pos": 4,
+     "shape": "u_shaped",
+     "length": "short",
+     "double": false,
+     "roof": "none",
+     "closed": false,
+     "wheels": 2,
+     "loads": [
+      "diamond"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "m6",
+   "label": 0,
+   "cars": [
+    {
+     "id": "m6_c1",
+     "pos": 1,
+     "shape": "u_shaped",
+     "length": "short",
+     "double": false,
+     "roof": "none",
+     "closed": false,
+     "wheels": 2,
+     "loads": [
+      "triangle"
+     ]
+    },
+    {
+     "id": "m6_c2",
+     "pos": 2,
+     "shape": "rectangle",
+     "length": "short",
+     "double": false,
+     "roof": "none",
+     "closed": false,
+     "wheels": 2,
+     "loads": [
+      "circle"
+     ]
+    },
+    {
+     "id": "m6_c3",
+     "pos": 3,
+     "shape": "u_shaped",
+     "length": "short",
+     "double": false,
+     "roof": "none",
+     "closed": false,
+     "wheels": 2,
+     "loads": [
+      "rectangle"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "m7",
+   "label": 0,
+   "cars": [
+    {
+     "id": "m7_c1",
+     "pos": 1,
+     "shape": "rectangle",
+     "length": "long",
+     "double": false,
+     "roof": "none",
+     "closed": false,
+     "wheels": 2,
+     "loads": [
+      "utriangle"
+     ]
+    },
+    {
+     "id": "m7_c2",
+     "pos": 2,
+     "shape": "u_shaped",
+     "length": "short",
+     "double": false,
+     "roof": "flat",
+     "closed": true,
+     "wheels": 2,
+     "loads": [
+      "triangle",
+      "triangle"
+     ]
+    },
+    {
+     "id": "m7_c3",
+     "pos": 3,
+     "shape": "hexagon",
+     "length": "short",
+     "double": false,
+     "roof": "flat",
+     "closed": true,
+     "wheels": 2,
+     "loads": [
+      "circle"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "m8",
+   "label": 0,
+   "cars": [
+    {
+     "id": "m8_c1",
+     "pos": 1,
+     "shape": "bucket",
+     "length": "short",
+     "double": false,
+     "roof": "none",
+     "closed": false,
+     "wheels": 2,
+     "loads": [
+      "triangle"
+     ]
+    },
+    {
+     "id": "m8_c2",
+     "pos": 2,
+     "shape": "rectangle",
+     "length": "long",
+     "double": false,
+     "roof": "none",
+     "closed": false,
+     "wheels": 2,
+     "loads": [
+      "rectangle"
+     ]
+    },
+    {
+     "id": "m8_c3",
+     "pos": 3,
+     "shape": "u_shaped",
+     "length": "short",
+     "double": false,
+     "roof": "none",
+     "closed": false,
+     "wheels": 2,
+     "loads": [
+      "triangle"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "m9",
+   "label": 0,
+   "cars": [
+    {
+     "id": "m9_c1",
+     "pos": 1,
+     "shape": "u_shaped",
+     "length": "short",
+     "double": false,
+     "roof": "none",
+     "closed": false,
+     "wheels": 2,
+     "loads": [
+      "triangle"
+     ]
+    },
+    {
+     "id": "m9_c2",
+     "pos": 2,
+     "shape": "u_shaped",
+     "length": "short",
+     "double": false,
+     "roof": "none",
+     "closed": false,
+     "wheels": 2,
+     "loads": [
+      "circle"
+     ]
+    },
+    {
+     "id": "m9_c3",
+     "pos": 3,
+     "shape": "u_shaped",
+     "length": "short",
+     "double": false,
+     "roof": "none",
+     "closed": false,
+     "wheels": 2,
+     "loads": [
+      "triangle",
+      "triangle"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "m10",
+   "label": 0,
+   "cars": [
+    {
+     "id": "m10_c1",
+     "pos": 1,
+     "shape": "rectangle",
+     "length": "long",
+     "double": false,
+     "roof": "none",
+     "closed": false,
+     "wheels": 3,
+     "loads": [
+      "rectangle",
+      "rectangle",
+      "rectangle"
+     ]
+    },
+    {
+     "id": "m10_c2",
+     "pos": 2,
+     "shape": "hexagon",
+     "length": "short",
+     "double": false,
+     "roof": "flat",
+     "closed": true,
+     "wheels": 2,
+     "loads": [
+      "diamond"
+     ]
+    },
+    {
+     "id": "m10_c3",
+     "pos": 3,
+     "shape": "rectangle",
+     "length": "short",
+     "double": false,
+     "roof": "none",
+     "closed": false,
+     "wheels": 2,
+     "loads": [
+      "triangle"
+     ]
+    },
+    {
+     "id": "m10_c4",
+     "pos": 4,
+     "shape": "hexagon",
+     "length": "short",
+     "double": false,
+     "roof": "flat",
+     "closed": true,
+     "wheels": 2,
+     "loads": [
+      "circle"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "m11",
+   "label": 0,
+   "cars": [
+    {
+     "id": "m11_c1",
+     "pos": 1,
+     "shape": "rectangle",
+     "length": "long",
+     "double": false,
+     "roof": "none",
+     "closed": false,
+     "wheels": 2,
+     "loads": []
+    },
+    {
+     "id": "m11_c2",
+     "pos": 2,
+     "shape": "rectangle",
+     "length": "short",
+     "double": false,
+     "roof": "none",
+     "closed": false,
+     "wheels": 2,
+     "loads": [
+      "rectangle",
+      "rectangle"
+     ]
+    },
+    {
+     "id": "m11_c3",
+     "pos": 3,
+     "shape": "u_shaped",
+     "length": "short",
+     "double": false,
+     "roof": "none",
+     "closed": false,
+     "wheels": 2,
+     "loads": [
+      "circle"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "m12",
+   "label": 0,
+   "cars": [
+    {
+     "id": "m12_c1",
+     "pos": 1,
+     "shape": "rectangle",
+     "length": "long",
+     "double": false,
+     "roof": "none",
+     "closed": false,
+     "wheels": 2,
+     "loads": [
+      "rectangle"
+     ]
+    },
+    {
+     "id": "m12_c2",
+     "pos": 2,
+     "shape": "u_shaped",
+     "length": "short",
+     "double": false,
+     "roof": "flat",
+     "closed": true,
+     "wheels": 2,
+     "loads": [
+      "circle"
+     ]
+    },
+    {
+     "id": "m12_c3",
+     "pos": 3,
+     "shape": "rectangle",
+     "length": "long",
+     "double": false,
+     "roof": "none",
+     "closed": false,
+     "wheels": 2,
+     "loads": [
+      "rectangle"
+     ]
+    },
+    {
+     "id": "m12_c4",
+     "pos": 4,
+     "shape": "u_shaped",
+     "length": "short",
+     "double": false,
+     "roof": "none",
+     "closed": false,
+     "wheels": 2,
+     "loads": [
+      "circle"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "m13",
+   "label": 1,
+   "cars": [
+    {
+     "id": "m13_c1",
+     "pos": 1,
+     "shape": "rectangle",
+     "length": "long",
+     "double": false,
+     "roof": "flat",
+     "closed": true,
+     "wheels": 3,
+     "loads": [
+      "rectangle"
+     ]
+    },
+    {
+     "id": "m13_c2",
+     "pos": 2,
+     "shape": "rectangle",
+     "length": "long",
+     "double": false,
+     "roof": "flat",
+     "closed": true,
+     "wheels": 2,
+     "loads": []
+    },
+    {
+     "id": "m13_c3",
+     "pos": 3,
+     "shape": "rectangle",
+     "length": "short",
+     "double": true,
+     "roof": "none",
+     "closed": false,
+     "wheels": 2,
+     "loads": [
+      "circle"
+     ]
+    },
+    {
+     "id": "m13_c4",
+     "pos": 4,
+     "shape": "rectangle",
+     "length": "short",
+     "double": false,
+     "roof": "none",
+     "closed": false,
+     "wheels": 2,
+     "loads": [
+      "circle"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "m14",
+   "label": 1,
+   "cars": [
+    {
+     "id": "m14_c1",
+     "pos": 1,
+     "shape": "rectangle",
+     "length": "short",
+     "double": true,
+     "roof": "none",
+     "closed": false,
+     "wheels": 2,
+     "loads": [
+      "circle"
+     ]
+    },
+    {
+     "id": "m14_c2",
+     "pos": 2,
+     "shape": "u_shaped",
+     "length": "short",
+     "double": false,
+     "roof": "none",
+     "closed": false,
+     "wheels": 2,
+     "loads": [
+      "circle"
+     ]
+    },
+    {
+     "id": "m14_c3",
+     "pos": 3,
+     "shape": "bucket",
+     "length": "short",
+     "double": false,
+     "roof": "none",
+     "closed": false,
+     "wheels": 2,
+     "loads": [
+      "triangle"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "m15",
+   "label": 1,
+   "cars": [
+    {
+     "id": "m15_c1",
+     "pos": 1,
+     "shape": "u_shaped",
+     "length": "short",
+     "double": false,
+     "roof": "none",
+     "closed": false,
+     "wheels": 2,
+     "loads": [
+      "circle"
+     ]
+    },
+    {
+     "id": "m15_c2",
+     "pos": 2,
+     "shape": "u_shaped",
+     "length": "short",
+     "double": false,
+     "roof": "peaked",
+     "closed": true,
+     "wheels": 2,
+     "loads": [
+      "rectangle"
+     ]
+    },
+    {
+     "id": "m15_c3",
+     "pos": 3,
+     "shape": "bucket",
+     "length": "short",
+     "double": false,
+     "roof": "none",
+     "closed": false,
+     "wheels": 2,
+     "loads": [
+      "diamond"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "m16",
+   "label": 1,
+   "cars": [
+    {
+     "id": "m16_c1",
+     "pos": 1,
+     "shape": "rectangle",
+     "length": "short",
+     "double": true,
+     "roof": "none",
+     "closed": false,
+     "wheels": 2,
+     "loads": [
+      "circle"
+     ]
+    },
+    {
+     "id": "m16_c2",
+     "pos": 2,
+     "shape": "rectangle",
+     "length": "short",
+     "double": false,
+     "roof": "none",
+     "closed": false,
+     "wheels": 2,
+     "loads": [
+      "circle",
+      "circle"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "m17",
+   "label": 1,
+   "cars": [
+    {
+     "id": "m17_c1",
+     "pos": 1,
+     "shape": "rectangle",
+     "length": "long",
+     "double": false,
+     "roof": "flat",
+     "closed": true,
+     "wheels": 3,
+     "loads": []
+    },
+    {
+     "id": "m17_c2",
+     "pos": 2,
+     "shape": "rectangle",
+     "length": "long",
+     "double": false,
+     "roof": "flat",
+     "closed": true,
+     "wheels": 2,
+     "loads": [
+      "rectangle"
+     ]
+    },
+    {
+     "id": "m17_c3",
+     "pos": 3,
+     "shape": "u_shaped",
+     "length": "short",
+     "double": false,
+     "roof": "peaked",
+     "closed": true,
+     "wheels": 2,
+     "loads": [
+      "circle"
+     ]
+    },
+    {
+     "id": "m17_c4",
+     "pos": 4,
+     "shape": "rectangle",
+     "length": "short",
+     "double": false,
+     "roof": "none",
+     "closed": false,
+     "wheels": 2,
+     "loads": [
+      "circle"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "m18",
+   "label": 1,
+   "cars": [
+    {
+     "id": "m18_c1",
+     "pos": 1,
+     "shape": "rectangle",
+     "length": "short",
+     "double": true,
+     "roof": "none",
+     "closed": false,
+     "wheels": 2,
+     "loads": [
+      "rectangle"
+     ]
+    },
+    {
+     "id": "m18_c2",
+     "pos": 2,
+     "shape": "rectangle",
+     "length": "short",
+     "double": false,
+     "roof": "peaked",
+     "closed": true,
+     "wheels": 2,
+     "loads": [
+      "circle"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "m19",
+   "label": 1,
+   "cars": [
+    {
+     "id": "m19_c1",
+     "pos": 1,
+     "shape": "rectangle",
+     "length": "long",
+     "double": false,
+     "roof": "jagged",
+     "closed": true,
+     "wheels": 2,
+     "loads": [
+      "circle"
+     ]
+    },
+    {
+     "id": "m19_c2",
+     "pos": 2,
+     "shape": "rectangle",
+     "length": "short",
+     "double": false,
+     "roof": "none",
+     "closed": false,
+     "wheels": 2,
+     "loads": [
+      "circle"
+     ]
+    },
+    {
+     "id": "m19_c3",
+     "pos": 3,
+     "shape": "u_shaped",
+     "length": "short",
+     "double": false,
+     "roof": "flat",
+     "closed": true,
+     "wheels": 2,
+     "loads": [
+      "triangle"
+     ]
+    },
+    {
+     "id": "m19_c4",
+     "pos": 4,
+     "shape": "rectangle",
+     "length": "short",
+     "double": false,
+     "roof": "peaked",
+     "closed": true,
+     "wheels": 2,
+     "loads": [
+      "triangle"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "m20",
+   "label": 1,
+   "cars": [
+    {
+     "id": "m20_c1",
+     "pos": 1,
+     "shape": "rectangle",
+     "length": "long",
+     "double": false,
+     "roof": "jagged",
+     "closed": true,
+     "wheels": 3,
+     "loads": [
+      "hexagon"
+     ]
+    },
+    {
+     "id": "m20_c2",
+     "pos": 2,
+     "shape": "bucket",
+     "length": "short",
+     "double": false,
+     "roof": "peaked",
+     "closed": true,
+     "wheels": 2,
+     "loads": [
+      "triangle"
+     ]
+    },
+    {
+     "id": "m20_c3",
+     "pos": 3,
+     "shape": "rectangle",
+     "length": "short",
+     "double": false,
+     "roof": "none",
+     "closed": false,
+     "wheels": 2,
+     "loads": [
+      "triangle"
+     ]
+    },
+    {
+     "id": "m20_c4",
+     "pos": 4,
+     "shape": "u_shaped",
+     "length": "short",
+     "double": false,
+     "roof": "none",
+     "closed": false,
+     "wheels": 2,
+     "loads": [
+      "triangle"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "m21",
+   "label": 1,
+   "cars": [
+    {
+     "id": "m21_c1",
+     "pos": 1,
+     "shape": "rectangle",
+     "length": "long",
+     "double": false,
+     "roof": "flat",
+     "closed": true,
+     "wheels": 2,
+     "loads": [
+      "rectangle"
+     ]
+    },
+    {
+     "id": "m21_c2",
+     "pos": 2,
+     "shape": "rectangle",
+     "length": "long",
+     "double": false,
+     "roof": "flat",
+     "closed": true,
+     "wheels": 2,
+     "loads": [
+      "hexagon"
+     ]
+    },
+    {
+     "id": "m21_c3",
+     "pos": 3,
+     "shape": "rectangle",
+     "length": "short",
+     "double": false,
+     "roof": "none",
+     "closed": false,
+     "wheels": 2,
+     "loads": [
+      "circle"
+     ]
+    },
+    {
+     "id": "m21_c4",
+     "pos": 4,
+     "shape": "bucket",
+     "length": "short",
+     "double": false,
+     "roof": "none",
+     "closed": false,
+     "wheels": 2,
+     "loads": [
+      "circle"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "m22",
+   "label": 1,
+   "cars": [
+    {
+     "id": "m22_c1",
+     "pos": 1,
+     "shape": "rectangle",
+     "length": "short",
+     "double": true,
+     "roof": "none",
+     "closed": false,
+     "wheels": 2,
+     "loads": [
+      "triangle"
+     ]
+    },
+    {
+     "id": "m22_c2",
+     "pos": 2,
+     "shape": "u_shaped",
+     "length": "short",
+     "double": false,
+     "roof": "none",
+     "closed": false,
+     "wheels": 2,
+     "loads": [
+      "triangle"
+     ]
+    },
+    {
+     "id": "m22_c3",
+     "pos": 3,
+     "shape": "rectangle",
+     "length": "short",
+     "double": false,
+     "roof": "none",
+     "closed": false,
+     "wheels": 2,
+     "loads": [
+      "triangle"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "m23",
+   "label": 1,
+   "cars": [
+    {
+     "id": "m23_c1",
+     "pos": 1,
+     "shape": "rectangle",
+     "length": "short",
+     "double": false,
+     "roof": "none",
+     "closed": false,
+     "wheels": 2,
+     "loads": [
+      "rectangle"
+     ]
+    },
+    {
+     "id": "m23_c2",
+     "pos": 2,
+     "shape": "u_shaped",
+     "length": "short",
+     "double": false,
+     "roof": "none",
+     "closed": false,
+     "wheels": 2,
+     "loads": [
+      "circle"
+     ]
+    },
+    {
+     "id": "m23_c3",
+     "pos": 3,
+     "shape": "u_shaped",
+     "length": "short",
+     "double": false,
+     "roof": "none",
+     "closed": false,
+     "wheels": 2,
+     "loads": [
+      "circle"
+     ]
+    },
+    {
+     "id": "m23_c4",
+     "pos": 4,
+     "shape": "rectangle",
+     "length": "short",
+     "double": true,
+     "roof": "none",
+     "closed": false,
+     "wheels": 2,
+     "loads": [
+      "rectangle",
+      "rectangle"
+     ]
+    }
+   ]
+  },
+  {
+   "id": "m24",
+   "label": 1,
+   "cars": [
+    {
+     "id": "m24_c1",
+     "pos": 1,
+     "shape": "rectangle",
+     "length": "short",
+     "double": true,
+     "roof": "peaked",
+     "closed": true,
+     "wheels": 2,
+     "loads": [
+      "circle",
+      "circle"
+     ]
+    },
+    {
+     "id": "m24_c2",
+     "pos": 2,
+     "shape": "u_shaped",
+     "length": "short",
+     "double": false,
+     "roof": "none",
+     "closed": false,
+     "wheels": 2,
+     "loads": [
+      "triangle"
+     ]
+    },
+    {
+     "id": "m24_c3",
+     "pos": 3,
+     "shape": "rectangle",
+     "length": "short",
+     "double": false,
+     "roof": "flat",
+     "closed": true,
+     "wheels": 2,
+     "loads": [
+      "triangle"
+     ]
+    },
+    {
+     "id": "m24_c4",
+     "pos": 4,
+     "shape": "rectangle",
+     "length": "long",
+     "double": false,
+     "roof": "flat",
+     "closed": true,
+     "wheels": 2,
+     "loads": [
+      "rectangle",
+      "rectangle"
+     ]
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,401 @@
+{
+ "name": "michalski10",
+ "target": "Eastbound",
+ "description": "Michalski's 10 trains (UCI #103); positive = eastbound",
+ "trains": [
+  {
+   "id": "trainA",
+   "label": 1,
+   "cars": [
+    {
+     "id": "A_car2",
+     "loads": [
+      "rectangle",
+      "rectangle",
+      "rectangle"
+     ],
+     "pos": 2,
+     "wheels": 2,
+     "length": "long",
+     "shape": "openrect",
+     "closed": false
+    },
+    {
+     "id": "A_car3",
+     "loads": [
+      "triangle"
+     ],
+     "pos": 3,
+     "wheels": 2,
+     "length": "short",
+     "shape": "slopetop",
+     "closed": true
+    },
+    {
+     "id": "A_car4",
+     "loads": [
+      "hexagon"
+     ],
+     "pos": 4,
+     "wheels": 3,
+     "length": "long",
+     "shape": "openrect",
+     "closed": false
+    },
+    {
+     "id": "A_car5",
+     "loads": [
+      "circle"
+     ],
+     "pos": 5,
+     "wheels": 2,
+     "length": "short",
+     "shape": "openrect",
+     "closed": false
+    }
+   ]
+  },
+  {
+   "id": "trainB",
+   "label": 1,
+   "cars": [
+    {
+     "id": "B_car2",
+     "loads": [
+      "triangle"
+     ],
+     "pos": 2,
+     "wheels": 2,
+     "length": "short",
+     "shape": "ushaped",
+     "closed": false
+    },
+    {
+     "id": "B_car3",
+     "loads": [
+      "rectangle"
+     ],
+     "pos": 3,
+     "wheels": 2,
+     "length": "short",
+     "shape": "opentrap",
+     "closed": false
+    },
+    {
+     "id": "B_car4",
+     "loads": [
+      "circle",
+      "circle"
+     ],
+     "pos": 4,
+     "wheels": 2,
+     "length": "short",
+     "shape": "closedrect",
+     "closed": true
+    }
+   ]
+  },
+  {
+   "id": "trainC",
+   "label": 1,
+   "cars": [
+    {
+     "id": "C_car2",
+     "loads": [
+      "circle"
+     ],
+     "pos": 2,
+     "wheels": 2,
+     "length": "short",
+     "shape": "openrect",
+     "closed": false
+    },
+    {
+     "id": "C_car3",
+     "loads": [
+      "triangle"
+     ],
+     "pos": 3,
+     "wheels": 2,
+     "length": "short",
+     "shape": "hexagon",
+     "closed": true
+    },
+    {
+     "id": "C_car4",
+     "loads": [
+      "triangle"
+     ],
+     "pos": 4,
+     "wheels": 3,
+     "length": "long",
+     "shape": "closedrect",
+     "closed": true
+    }
+   ]
+  },
+  {
+   "id": "trainD",
+   "label": 1,
+   "cars": [
+    {
+     "id": "D_car2",
+     "loads": [
+      "triangle"
+     ],
+     "pos": 2,
+     "wheels": 2,
+     "length": "short",
+     "shape": "opentrap",
+     "closed": false
+    },
+    {
+     "id": "D_car3",
+     "loads": [
+      "triangle"
+     ],
+     "pos": 3,
+     "wheels": 2,
+     "length": "short",
+     "shape": "dblopnrect",
+     "closed": false
+    },
+    {
+     "id": "D_car4",
+     "loads": [
+      "rectangle"
+     ],
+     "pos": 4,
+     "wheels": 2,
+     "length": "short",
+     "shape": "ellipse",
+     "closed": true
+    },
+    {
+     "id": "D_car5",
+     "loads": [
+      "rectangle"
+     ],
+     "pos": 5,
+     "wheels": 2,
+     "length": "short",
+     "shape": "openrect",
+     "closed": false
+    }
+   ]
+  },
+  {
+   "id": "trainE",
+   "label": 1,
+   "cars": [
+    {
+     "id": "E_car2",
+     "loads": [
+      "triangle"
+     ],
+     "pos": 2,
+     "wheels": 2,
+     "length": "short",
+     "shape": "dblopnrect",
+     "closed": false
+    },
+    {
+     "id": "E_car3",
+     "loads": [
+      "rectangle"
+     ],
+     "pos": 3,
+     "wheels": 3,
+     "length": "long",
+     "shape": "closedrect",
+     "closed": true
+    },
+    {
+     "id": "E_car4",
+     "loads": [
+      "circle"
+     ],
+     "pos": 4,
+     "wheels": 2,
+     "length": "short",
+     "shape": "closedrect",
+     "closed": true
+    }
+   ]
+  },
+  {
+   "id": "trainF",
+   "label": 0,
+   "cars": [
+    {
+     "id": "F_car2",
+     "loads": [
+      "circle",
+      "circle",
+      "circle"
+     ],
+     "pos": 2,
+     "wheels": 2,
+     "length": "long",
+     "shape": "closedrect",
+     "closed": true
+    },
+    {
+     "id": "F_car3",
+     "loads": [
+      "triangle"
+     ],
+     "pos": 3,
+     "wheels": 2,
+     "length": "short",
+     "shape": "openrect",
+     "closed": false
+    }
+   ]
+  },
+  {
+   "id": "trainG",
+   "label": 0,
+   "cars": [
+    {
+     "id": "G_car2",
+     "loads": [
+      "circle"
+     ],
+     "pos": 2,
+     "wheels": 2,
+     "length": "short",
+     "shape": "dblopnrect",
+     "closed": false
+    },
+    {
+     "id": "G_car3",
+     "loads": [
+      "triangle"
+     ],
+     "pos": 3,
+     "wheels": 2,
+     "length": "short",
+     "shape": "ushaped",
+     "closed": false
+    },
+    {
+     "id": "G_car4",
+     "loads": [],
+     "pos": 4,
+     "wheels": 2,
+     "length": "long",
+     "shape": "jaggedtop",
+     "closed": true
+    }
+   ]
+  },
+  {
+   "id": "trainH",
+   "label": 0,
+   "cars": [
+    {
+     "id": "H_car2",
+     "loads": [
+      "rectangle"
+     ],
+     "pos": 2,
+     "wheels": 3,
+     "length": "long",
+     "shape": "closedrect",
+     "closed": true
+    },
+    {
+     "id": "H_car3",
+     "loads": [
+      "circle"
+     ],
+     "pos": 3,
+     "wheels": 2,
+     "length": "short",
+     "shape": "ushaped",
+     "closed": false
+    }
+   ]
+  },
+  {
+   "id": "trainI",
+   "label": 0,
+   "cars": [
+    {
+     "id": "I_car2",
+     "loads": [
+      "circle"
+     ],
+     "pos": 2,
+     "wheels": 2,
+     "length": "short",
+     "shape": "opentrap",
+     "closed": false
+    },
+    {
+     "id": "I_car3",
+     "loads": [
+      "rectangle"
+     ],
+     "pos": 3,
+     "wheels": 2,
+     "length": "long",
+     "shape": "jaggedtop",
+     "closed": true
+    },
+    {
+     "id": "I_car4",
+     "loads": [
+      "rectangle"
+     ],
+     "pos": 4,
+     "wheels": 2,
+     "length": "short",
+     "shape": "openrect",
+     "closed": false
+    },
+    {
+     "id": "I_car5",
+     "loads": [
+      "circle"
+     ],
+     "pos": 5,
+     "wheels": 2,
+     "length": "short",
+     "shape": "opentrap",
+     "closed": false
+    }
+   ]
+  },
+  {
+   "id": "trainJ",
+   "label": 0,
+   "cars": [
+    {
+     "id": "J_car2",
+     "loads": [
+      "rectangle"
+     ],
+     "pos": 2,
+     "wheels": 2,
+     "length": "short",
+     "shape": "ushaped",
+     "closed": false
+    },
+    {
+     "id": "J_car3",
+     "loads": [
+      "rectangle",
+      "rectangle"
+     ],
+     "pos": 3,
+     "wheels": 2,
+     "length": "long",
+     "shape": "openrect",
+     "closed": false
+    }
+   ]
+  }
+ ]
+}
