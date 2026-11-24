@@ -1,0 +1,491 @@
+===== dt_positional on michalski10 (5 nodes, depth 2)
+|--- car3_load_none <= 0.50
+|   |--- car4_shape_opentrap <= 0.50
+|   |   |--- class: 1
+|   |--- car4_shape_opentrap >  0.50
+|   |   |--- class: 0
+|--- car3_load_none >  0.50
+|   |--- class: 0
+
+===== dt_aggregate on michalski10 (5 nodes, depth 2)
+|--- carCount <= 2.50
+|   |--- class: 0
+|--- carCount >  2.50
+|   |--- n_shape=jaggedtop <= 0.50
+|   |   |--- class: 1
+|   |--- n_shape=jaggedtop >  0.50
+|   |   |--- class: 0
+
+===== dt_positional on michie24 (13 nodes, depth 4)
+|--- car1_shape_rectangle <= 0.50
+|   |--- car3_shape_bucket <= 0.50
+|   |   |--- class: 0
+|   |--- car3_shape_bucket >  0.50
+|   |   |--- class: 1
+|--- car1_shape_rectangle >  0.50
+|   |--- car3_length_long <= 0.50
+|   |   |--- car2_nloads <= 1.50
+|   |   |   |--- car2_load_diamond <= 0.50
+|   |   |   |   |--- class: 1
+|   |   |   |--- car2_load_diamond >  0.50
+|   |   |   |   |--- class: 0
+|   |   |--- car2_nloads >  1.50
+|   |   |   |--- car3_double_False <= 0.50
+|   |   |   |   |--- class: 1
+|   |   |   |--- car3_double_False >  0.50
+|   |   |   |   |--- class: 0
+|   |--- car3_length_long >  0.50
+|   |   |--- class: 0
+
+===== dt_aggregate on michie24 (9 nodes, depth 3)
+|--- n_roof=peaked <= 0.50
+|   |--- n_double=True <= 0.50
+|   |   |--- n_shape=rectangle <= 2.50
+|   |   |   |--- class: 0
+|   |   |--- n_shape=rectangle >  2.50
+|   |   |   |--- class: 1
+|   |--- n_double=True >  0.50
+|   |   |--- n_roof=jagged <= 1.00
+|   |   |   |--- class: 1
+|   |   |--- n_roof=jagged >  1.00
+|   |   |   |--- class: 0
+|--- n_roof=peaked >  0.50
+|   |--- class: 1
+
+===== dt_positional on synthetic200 (45 nodes, depth 8)
+|--- car4_length_short <= 0.50
+|   |--- car2_closed_True <= 0.50
+|   |   |--- car1_length_long <= 0.50
+|   |   |   |--- car1_closed_False <= 0.50
+|   |   |   |   |--- class: 1
+|   |   |   |--- car1_closed_False >  0.50
+|   |   |   |   |--- car3_length_short <= 0.50
+|   |   |   |   |   |--- class: 0
+|   |   |   |   |--- car3_length_short >  0.50
+|   |   |   |   |   |--- class: 1
+|   |   |--- car1_length_long >  0.50
+|   |   |   |--- car3_shape_jaggedtop <= 0.50
+|   |   |   |   |--- car3_shape_hexagon <= 0.50
+|   |   |   |   |   |--- class: 0
+|   |   |   |   |--- car3_shape_hexagon >  0.50
+|   |   |   |   |   |--- car3_load_rectangle <= 0.50
+|   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |--- car3_load_rectangle >  0.50
+|   |   |   |   |   |   |--- class: 1
+|   |   |   |--- car3_shape_jaggedtop >  0.50
+|   |   |   |   |--- car3_length_long <= 0.50
+|   |   |   |   |   |--- class: 1
+|   |   |   |   |--- car3_length_long >  0.50
+|   |   |   |   |   |--- class: 0
+|   |--- car2_closed_True >  0.50
+|   |   |--- car2_length_short <= 0.50
+|   |   |   |--- car3_length_short <= 0.50
+|   |   |   |   |--- car1_shape_ellipse <= 0.50
+|   |   |   |   |   |--- car1_shape_jaggedtop <= 0.50
+|   |   |   |   |   |   |--- car1_shape_slopetop <= 0.50
+|   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |--- car1_shape_slopetop >  0.50
+|   |   |   |   |   |   |   |--- car1_length_short <= 0.50
+|   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |--- car1_length_short >  0.50
+|   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |--- car1_shape_jaggedtop >  0.50
+|   |   |   |   |   |   |--- car1_length_short <= 0.50
+|   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |--- car1_length_short >  0.50
+|   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |--- car1_shape_ellipse >  0.50
+|   |   |   |   |   |--- class: 1
+|   |   |   |--- car3_length_short >  0.50
+|   |   |   |   |--- car3_closed_False <= 0.50
+|   |   |   |   |   |--- class: 1
+|   |   |   |   |--- car3_closed_False >  0.50
+|   |   |   |   |   |--- car1_shape_slopetop <= 0.50
+|   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |--- car1_shape_slopetop >  0.50
+|   |   |   |   |   |   |--- class: 1
+|   |   |--- car2_length_short >  0.50
+|   |   |   |--- class: 1
+|--- car4_length_short >  0.50
+|   |--- car3_nloads <= 2.50
+|   |   |--- car4_shape_dblopnrect <= 0.50
+|   |   |   |--- class: 1
+|   |   |--- car4_shape_dblopnrect >  0.50
+|   |   |   |--- car4_nloads <= 0.50
+|   |   |   |   |--- class: 0
+|   |   |   |--- car4_nloads >  0.50
+|   |   |   |   |--- class: 1
+|   |--- car3_nloads >  2.50
+|   |   |--- car2_length_short <= 0.50
+|   |   |   |--- class: 0
+|   |   |--- car2_length_short >  0.50
+|   |   |   |--- class: 1
+
+===== dt_aggregate on synthetic200 (61 nodes, depth 9)
+|--- n_length=short <= 1.50
+|   |--- n_length=short <= 0.50
+|   |   |--- class: 0
+|   |--- n_length=short >  0.50
+|   |   |--- n_closed=True <= 1.50
+|   |   |   |--- n_load=triangle <= 1.50
+|   |   |   |   |--- max_nloads <= 0.50
+|   |   |   |   |   |--- class: 1
+|   |   |   |   |--- max_nloads >  0.50
+|   |   |   |   |   |--- n_loads_of=hexagon <= 2.50
+|   |   |   |   |   |   |--- n_shape=slopetop <= 0.50
+|   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |--- n_shape=slopetop >  0.50
+|   |   |   |   |   |   |   |--- n_shape=opentrap <= 0.50
+|   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |--- n_shape=opentrap >  0.50
+|   |   |   |   |   |   |   |   |--- n_closed=False <= 2.00
+|   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |--- n_closed=False >  2.00
+|   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |--- n_loads_of=hexagon >  2.50
+|   |   |   |   |   |   |--- sum_wheels <= 6.50
+|   |   |   |   |   |   |   |--- sum_nloads <= 3.50
+|   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |--- sum_nloads >  3.50
+|   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |--- sum_wheels >  6.50
+|   |   |   |   |   |   |   |--- class: 0
+|   |   |   |--- n_load=triangle >  1.50
+|   |   |   |   |--- n_loads_of=hexagon <= 0.50
+|   |   |   |   |   |--- class: 0
+|   |   |   |   |--- n_loads_of=hexagon >  0.50
+|   |   |   |   |   |--- class: 1
+|   |   |--- n_closed=True >  1.50
+|   |   |   |--- n_closed=False <= 0.50
+|   |   |   |   |--- class: 1
+|   |   |   |--- n_closed=False >  0.50
+|   |   |   |   |--- sum_nloads <= 2.50
+|   |   |   |   |   |--- class: 0
+|   |   |   |   |--- sum_nloads >  2.50
+|   |   |   |   |   |--- n_loads_of=triangle <= 3.50
+|   |   |   |   |   |   |--- n_shape=opentrap <= 0.50
+|   |   |   |   |   |   |   |--- sum_wheels <= 9.50
+|   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |--- sum_wheels >  9.50
+|   |   |   |   |   |   |   |   |--- n_shape=jaggedtop <= 0.50
+|   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |--- n_shape=jaggedtop >  0.50
+|   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |--- n_shape=opentrap >  0.50
+|   |   |   |   |   |   |   |--- n_shape=jaggedtop <= 0.50
+|   |   |   |   |   |   |   |   |--- n_shape=slopetop <= 0.50
+|   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |--- n_shape=slopetop >  0.50
+|   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |--- n_shape=jaggedtop >  0.50
+|   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |--- n_loads_of=triangle >  3.50
+|   |   |   |   |   |   |--- class: 0
+|--- n_length=short >  1.50
+|   |--- n_closed=True <= 0.50
+|   |   |--- class: 0
+|   |--- n_closed=True >  0.50
+|   |   |--- n_closed=True <= 1.50
+|   |   |   |--- n_loads_of=triangle <= 0.50
+|   |   |   |   |--- n_shape=dblopnrect <= 0.50
+|   |   |   |   |   |--- class: 1
+|   |   |   |   |--- n_shape=dblopnrect >  0.50
+|   |   |   |   |   |--- n_loads_of=circle <= 1.50
+|   |   |   |   |   |   |--- sum_wheels <= 6.50
+|   |   |   |   |   |   |   |--- n_load=none <= 1.50
+|   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |--- n_load=none >  1.50
+|   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |--- sum_wheels >  6.50
+|   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |--- n_loads_of=circle >  1.50
+|   |   |   |   |   |   |--- class: 1
+|   |   |   |--- n_loads_of=triangle >  0.50
+|   |   |   |   |--- n_loads_of=rectangle <= 1.50
+|   |   |   |   |   |--- n_loads_of=triangle <= 2.50
+|   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |--- n_loads_of=triangle >  2.50
+|   |   |   |   |   |   |--- n_shape=dblopnrect <= 1.50
+|   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |--- n_shape=dblopnrect >  1.50
+|   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |--- n_loads_of=rectangle >  1.50
+|   |   |   |   |   |--- class: 0
+|   |   |--- n_closed=True >  1.50
+|   |   |   |--- class: 1
+
+===== dt_positional on synthetic200_noise10 (87 nodes, depth 9)
+|--- car2_closed_True <= 0.50
+|   |--- car1_length_short <= 0.50
+|   |   |--- car4_load_hexagon <= 0.50
+|   |   |   |--- car4_length_short <= 0.50
+|   |   |   |   |--- car1_shape_ellipse <= 0.50
+|   |   |   |   |   |--- car1_shape_hexagon <= 0.50
+|   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |--- car1_shape_hexagon >  0.50
+|   |   |   |   |   |   |--- car1_load_rectangle <= 0.50
+|   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |--- car1_load_rectangle >  0.50
+|   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |--- car1_shape_ellipse >  0.50
+|   |   |   |   |   |--- car4_closed_none <= 0.50
+|   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |--- car4_closed_none >  0.50
+|   |   |   |   |   |   |--- car2_load_rectangle <= 0.50
+|   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |--- car2_load_rectangle >  0.50
+|   |   |   |   |   |   |   |--- class: 0
+|   |   |   |--- car4_length_short >  0.50
+|   |   |   |   |--- car3_nloads <= 2.50
+|   |   |   |   |   |--- car2_shape_ushaped <= 0.50
+|   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |--- car2_shape_ushaped >  0.50
+|   |   |   |   |   |   |--- class: 0
+|   |   |   |   |--- car3_nloads >  2.50
+|   |   |   |   |   |--- class: 0
+|   |   |--- car4_load_hexagon >  0.50
+|   |   |   |--- car3_shape_dblopnrect <= 0.50
+|   |   |   |   |--- class: 1
+|   |   |   |--- car3_shape_dblopnrect >  0.50
+|   |   |   |   |--- class: 0
+|   |--- car1_length_short >  0.50
+|   |   |--- car1_closed_True <= 0.50
+|   |   |   |--- car3_length_short <= 0.50
+|   |   |   |   |--- car4_length_short <= 0.50
+|   |   |   |   |   |--- car3_shape_jaggedtop <= 0.50
+|   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |--- car3_shape_jaggedtop >  0.50
+|   |   |   |   |   |   |--- car1_shape_dblopnrect <= 0.50
+|   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |--- car1_shape_dblopnrect >  0.50
+|   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |--- car4_length_short >  0.50
+|   |   |   |   |   |--- car4_nloads <= 0.50
+|   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |--- car4_nloads >  0.50
+|   |   |   |   |   |   |--- class: 1
+|   |   |   |--- car3_length_short >  0.50
+|   |   |   |   |--- class: 1
+|   |   |--- car1_closed_True >  0.50
+|   |   |   |--- car2_shape_dblopnrect <= 0.50
+|   |   |   |   |--- class: 1
+|   |   |   |--- car2_shape_dblopnrect >  0.50
+|   |   |   |   |--- car2_load_hexagon <= 0.50
+|   |   |   |   |   |--- car4_load_rectangle <= 0.50
+|   |   |   |   |   |   |--- car2_load_none <= 0.50
+|   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |--- car2_load_none >  0.50
+|   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |--- car4_load_rectangle >  0.50
+|   |   |   |   |   |   |--- class: 1
+|   |   |   |   |--- car2_load_hexagon >  0.50
+|   |   |   |   |   |--- class: 0
+|--- car2_closed_True >  0.50
+|   |--- car2_length_long <= 0.50
+|   |   |--- car1_shape_slopetop <= 0.50
+|   |   |   |--- car1_load_rectangle <= 0.50
+|   |   |   |   |--- car1_shape_jaggedtop <= 0.50
+|   |   |   |   |   |--- class: 1
+|   |   |   |   |--- car1_shape_jaggedtop >  0.50
+|   |   |   |   |   |--- car2_shape_slopetop <= 0.50
+|   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |--- car2_shape_slopetop >  0.50
+|   |   |   |   |   |   |--- class: 0
+|   |   |   |--- car1_load_rectangle >  0.50
+|   |   |   |   |--- car1_shape_ushaped <= 0.50
+|   |   |   |   |   |--- car3_nloads <= 1.50
+|   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |--- car3_nloads >  1.50
+|   |   |   |   |   |   |--- class: 0
+|   |   |   |   |--- car1_shape_ushaped >  0.50
+|   |   |   |   |   |--- class: 0
+|   |   |--- car1_shape_slopetop >  0.50
+|   |   |   |--- car3_closed_False <= 0.50
+|   |   |   |   |--- class: 0
+|   |   |   |--- car3_closed_False >  0.50
+|   |   |   |   |--- class: 1
+|   |--- car2_length_long >  0.50
+|   |   |--- car3_length_short <= 0.50
+|   |   |   |--- car4_length_short <= 0.50
+|   |   |   |   |--- car1_closed_False <= 0.50
+|   |   |   |   |   |--- car1_length_short <= 0.50
+|   |   |   |   |   |   |--- car4_load_triangle <= 0.50
+|   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |--- car4_load_triangle >  0.50
+|   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |--- car1_length_short >  0.50
+|   |   |   |   |   |   |--- car1_load_rectangle <= 0.50
+|   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |--- car1_load_rectangle >  0.50
+|   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |--- car1_closed_False >  0.50
+|   |   |   |   |   |--- car1_shape_openrect <= 0.50
+|   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |--- car1_shape_openrect >  0.50
+|   |   |   |   |   |   |--- car2_load_hexagon <= 0.50
+|   |   |   |   |   |   |   |--- car2_shape_slopetop <= 0.50
+|   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |--- car2_shape_slopetop >  0.50
+|   |   |   |   |   |   |   |   |--- car2_wheels <= 2.50
+|   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |--- car2_wheels >  2.50
+|   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |--- car2_load_hexagon >  0.50
+|   |   |   |   |   |   |   |--- class: 1
+|   |   |   |--- car4_length_short >  0.50
+|   |   |   |   |--- car2_nloads <= 1.50
+|   |   |   |   |   |--- class: 0
+|   |   |   |   |--- car2_nloads >  1.50
+|   |   |   |   |   |--- class: 1
+|   |   |--- car3_length_short >  0.50
+|   |   |   |--- car3_closed_True <= 0.50
+|   |   |   |   |--- car1_shape_slopetop <= 0.50
+|   |   |   |   |   |--- class: 0
+|   |   |   |   |--- car1_shape_slopetop >  0.50
+|   |   |   |   |   |--- class: 1
+|   |   |   |--- car3_closed_True >  0.50
+|   |   |   |   |--- class: 1
+
+===== dt_aggregate on synthetic200_noise10 (95 nodes, depth 11)
+|--- n_length=short <= 1.50
+|   |--- n_length=short <= 0.50
+|   |   |--- n_load=triangle <= 2.50
+|   |   |   |--- sum_wheels <= 4.50
+|   |   |   |   |--- n_load=rectangle <= 0.50
+|   |   |   |   |   |--- class: 0
+|   |   |   |   |--- n_load=rectangle >  0.50
+|   |   |   |   |   |--- class: 1
+|   |   |   |--- sum_wheels >  4.50
+|   |   |   |   |--- n_shape=ellipse <= 0.50
+|   |   |   |   |   |--- class: 0
+|   |   |   |   |--- n_shape=ellipse >  0.50
+|   |   |   |   |   |--- n_loads_of=rectangle <= 2.50
+|   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |--- n_loads_of=rectangle >  2.50
+|   |   |   |   |   |   |--- class: 1
+|   |   |--- n_load=triangle >  2.50
+|   |   |   |--- class: 1
+|   |--- n_length=short >  0.50
+|   |   |--- n_closed=False <= 0.50
+|   |   |   |--- n_loads_of=triangle <= 1.50
+|   |   |   |   |--- class: 1
+|   |   |   |--- n_loads_of=triangle >  1.50
+|   |   |   |   |--- max_wheels <= 2.50
+|   |   |   |   |   |--- class: 0
+|   |   |   |   |--- max_wheels >  2.50
+|   |   |   |   |   |--- class: 1
+|   |   |--- n_closed=False >  0.50
+|   |   |   |--- n_closed=True <= 2.50
+|   |   |   |   |--- n_load=hexagon <= 1.50
+|   |   |   |   |   |--- sum_nloads <= 1.50
+|   |   |   |   |   |   |--- sum_wheels <= 6.50
+|   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |--- sum_wheels >  6.50
+|   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |--- sum_nloads >  1.50
+|   |   |   |   |   |   |--- n_shape=dblopnrect <= 1.50
+|   |   |   |   |   |   |   |--- sum_wheels <= 9.50
+|   |   |   |   |   |   |   |   |--- n_shape=openrect <= 1.50
+|   |   |   |   |   |   |   |   |   |--- n_shape=slopetop <= 0.50
+|   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |   |--- n_shape=slopetop >  0.50
+|   |   |   |   |   |   |   |   |   |   |--- n_shape=opentrap <= 0.50
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |   |   |--- n_shape=opentrap >  0.50
+|   |   |   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |--- n_shape=openrect >  1.50
+|   |   |   |   |   |   |   |   |   |--- n_shape=ellipse <= 0.50
+|   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |   |--- n_shape=ellipse >  0.50
+|   |   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |--- sum_wheels >  9.50
+|   |   |   |   |   |   |   |   |--- n_shape=openrect <= 0.50
+|   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |--- n_shape=openrect >  0.50
+|   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |--- n_shape=dblopnrect >  1.50
+|   |   |   |   |   |   |   |--- max_wheels <= 2.50
+|   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |--- max_wheels >  2.50
+|   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |--- n_load=hexagon >  1.50
+|   |   |   |   |   |--- n_shape=ushaped <= 0.50
+|   |   |   |   |   |   |--- n_load=none <= 0.50
+|   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |--- n_load=none >  0.50
+|   |   |   |   |   |   |   |--- n_loads_of=hexagon <= 3.00
+|   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |--- n_loads_of=hexagon >  3.00
+|   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |--- n_shape=ushaped >  0.50
+|   |   |   |   |   |   |--- sum_wheels <= 6.50
+|   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |--- sum_wheels >  6.50
+|   |   |   |   |   |   |   |--- class: 0
+|   |   |   |--- n_closed=True >  2.50
+|   |   |   |   |--- n_shape=opentrap <= 0.50
+|   |   |   |   |   |--- class: 1
+|   |   |   |   |--- n_shape=opentrap >  0.50
+|   |   |   |   |   |--- class: 0
+|--- n_length=short >  1.50
+|   |--- n_closed=True <= 0.50
+|   |   |--- class: 0
+|   |--- n_closed=True >  0.50
+|   |   |--- n_shape=dblopnrect <= 0.50
+|   |   |   |--- n_shape=slopetop <= 2.50
+|   |   |   |   |--- n_shape=hexagon <= 1.50
+|   |   |   |   |   |--- sum_nloads <= 1.50
+|   |   |   |   |   |   |--- n_shape=jaggedtop <= 0.50
+|   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |--- n_shape=jaggedtop >  0.50
+|   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |--- sum_nloads >  1.50
+|   |   |   |   |   |   |--- n_loads_of=rectangle <= 1.50
+|   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |--- n_loads_of=rectangle >  1.50
+|   |   |   |   |   |   |   |--- n_shape=jaggedtop <= 0.50
+|   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |--- n_shape=jaggedtop >  0.50
+|   |   |   |   |   |   |   |   |--- n_loads_of=triangle <= 1.00
+|   |   |   |   |   |   |   |   |   |--- max_wheels <= 2.50
+|   |   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |   |   |--- max_wheels >  2.50
+|   |   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |--- n_loads_of=triangle >  1.00
+|   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |--- n_shape=hexagon >  1.50
+|   |   |   |   |   |--- carCount <= 3.50
+|   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |--- carCount >  3.50
+|   |   |   |   |   |   |--- class: 0
+|   |   |   |--- n_shape=slopetop >  2.50
+|   |   |   |   |--- class: 0
+|   |   |--- n_shape=dblopnrect >  0.50
+|   |   |   |--- sum_nloads <= 2.50
+|   |   |   |   |--- class: 0
+|   |   |   |--- sum_nloads >  2.50
+|   |   |   |   |--- n_shape=ushaped <= 0.50
+|   |   |   |   |   |--- sum_wheels <= 6.50
+|   |   |   |   |   |   |--- sum_nloads <= 3.50
+|   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |--- sum_nloads >  3.50
+|   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |--- sum_wheels >  6.50
+|   |   |   |   |   |   |--- n_loads_of=rectangle <= 1.50
+|   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |--- n_loads_of=rectangle >  1.50
+|   |   |   |   |   |   |   |--- max_wheels <= 2.50
+|   |   |   |   |   |   |   |   |--- n_shape=hexagon <= 0.50
+|   |   |   |   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |   |   |   |--- n_shape=hexagon >  0.50
+|   |   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |   |--- max_wheels >  2.50
+|   |   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |--- n_shape=ushaped >  0.50
+|   |   |   |   |   |--- n_length=long <= 1.50
+|   |   |   |   |   |   |--- class: 0
+|   |   |   |   |   |--- n_length=long >  1.50
+|   |   |   |   |   |   |--- n_loads_of=rectangle <= 2.50
+|   |   |   |   |   |   |   |--- class: 1
+|   |   |   |   |   |   |--- n_loads_of=rectangle >  2.50
+|   |   |   |   |   |   |   |--- class: 0
