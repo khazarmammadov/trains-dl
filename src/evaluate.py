@@ -130,6 +130,7 @@ def style(ax):
 def fig_comparison(summary: pd.DataFrame) -> None:
     """Small multiples: test accuracy per method, one panel per dataset."""
     picks = [("DL-Learner", "celoe_alc", "CELOE (ALC)"),
+             ("DL-Learner", "celoe_no_neg_all", "CELOE no ¬/∀"),
              ("DL-Learner", "celoe_noise10", "CELOE noise 10%"),
              ("DL-Learner", "eltl_el", "ELTL (EL)"),
              ("DL-Learner", "ocel_alc", "OCEL"),
@@ -137,7 +138,7 @@ def fig_comparison(summary: pd.DataFrame) -> None:
              ("ML", "dt_aggregate", "Tree, aggregate"),
              ("ML", "rf_positional", "Forest, positional"),
              ("ML", "rf_aggregate", "Forest, aggregate")]
-    fig, axes = plt.subplots(1, 4, figsize=(13, 3.6), sharey=True, facecolor=SURFACE)
+    fig, axes = plt.subplots(1, 4, figsize=(13, 3.9), sharey=True, facecolor=SURFACE)
     for ax, ds in zip(axes, DATASETS):
         vals, labels, colors = [], [], []
         for kind, setting, label in picks:
@@ -156,11 +157,11 @@ def fig_comparison(summary: pd.DataFrame) -> None:
         ax.set_yticks(list(y))
         ax.set_yticklabels(labels)
         style(ax)
-    axes[0].text(0.5, -0.9, "chance", fontsize=7, color=INK2, ha="center")
     handles = [plt.Rectangle((0, 0), 1, 1, color=BLUE), plt.Rectangle((0, 0), 1, 1, color=ORANGE)]
     fig.legend(handles, ["Concept induction (DL-Learner)", "Classical ML"], loc="upper right",
                ncol=2, frameon=False, fontsize=8.5, labelcolor=INK)
-    fig.suptitle("Test accuracy (pooled over CV folds)", x=0.01, ha="left", fontsize=11, color=INK)
+    fig.suptitle("Test accuracy (pooled over CV folds; dashed line = chance)", x=0.01, ha="left",
+                 fontsize=11, color=INK)
     fig.tight_layout(rect=(0, 0, 1, 0.93))
     fig.savefig(RES / "fig_test_accuracy.png", dpi=200, facecolor=SURFACE)
     plt.close(fig)
@@ -181,6 +182,7 @@ def fig_time_budget(summary: pd.DataFrame) -> None:
         a2.plot(xs, ln, marker="o", markersize=6, linewidth=2, color=col, label=ds)
     for ax, title in ((a1, "Test accuracy"), (a2, "Mean concept length")):
         ax.set_xscale("log")
+        ax.minorticks_off()
         ax.set_xticks([1, 5, 20])
         ax.set_xticklabels(["1 s", "5 s", "20 s"])
         ax.set_title(title, fontsize=9.5, color=INK, loc="left")
@@ -188,6 +190,8 @@ def fig_time_budget(summary: pd.DataFrame) -> None:
         ax.grid(axis="y", color=GRID, linewidth=0.8)
         ax.grid(axis="x", visible=False)
     a1.legend(frameon=False, fontsize=7.5, labelcolor=INK)
+    a2.annotate("michalski10 = synthetic200 = 5", xy=(5, 5), xytext=(1.05, 5.35),
+                fontsize=7.5, color=INK2)
     fig.suptitle("CELOE runtime budget", x=0.01, ha="left", fontsize=11, color=INK)
     fig.tight_layout()
     fig.savefig(RES / "fig_time_budget.png", dpi=200, facecolor=SURFACE)

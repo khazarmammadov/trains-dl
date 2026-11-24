@@ -15,7 +15,9 @@ Pooled test predictions over all folds (LOO for the 10/24-train sets, stratified
 | DL-Learner | eltl_el | 1.000 | 1.000 | 1.000 | 1.000 | 1.000 | 5.8 | 8.04 |
 | DL-Learner | ocel_alc | 1.000 | 1.000 | 1.000 | 1.000 | 1.000 | 9.0 | 7.65 |
 | DL-Learner | owa_hermit_closed | 0.500 | 0.500 | 1.000 | 0.667 | 0.500 | 1.0 | 12.02 |
+| DL-Learner | owa_hermit_closed_t60 | 0.900 | 0.833 | 1.000 | 0.909 | 0.967 | 4.6 | 71.36 |
 | DL-Learner | owa_hermit_open | 0.800 | 0.714 | 1.000 | 0.833 | 0.800 | 3.0 | 7.71 |
+| DL-Learner | owa_hermit_open_t60 | 0.900 | 0.833 | 1.000 | 0.909 | 0.989 | 5.0 | 63.36 |
 | ML | dt_aggregate | 0.500 | 0.500 | 0.800 | 0.615 | 1.000 | 5.0 | 0.00 |
 | ML | dt_positional | 0.400 | 0.333 | 0.200 | 0.250 | 1.000 | 4.8 | 0.01 |
 | ML | rf_aggregate | 0.600 | 0.571 | 0.800 | 0.667 | 1.000 | 1027.0 | 0.23 |
@@ -32,7 +34,9 @@ Pooled test predictions over all folds (LOO for the 10/24-train sets, stratified
 | eltl_el | `∃hasCar.(ClosedCar ⊓ ShortCar)` | 2.0 | – |
 | ocel_alc | `∃hasCar.(ClosedCar ⊓ ShortCar) ⊓ ∃carCount.[>=3]` | 1.0 | 27759 |
 | owa_hermit_closed | `⊤` | 1.0 | 16 |
+| owa_hermit_closed_t60 | `∃hasCar.(ClosedCar ⊓ ShortCar)` | 2.0 | 304 |
 | owa_hermit_open | `∃carCount.[>=3]` | 1.0 | 135 |
+| owa_hermit_open_t60 | `∃hasCar.(ClosedCar ⊓ ShortCar)` | 2.0 | 4062 |
 
 ## michie24
 

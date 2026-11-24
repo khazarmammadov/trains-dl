@@ -27,9 +27,10 @@ and we ask what the logical representation buys us.
    reaches 0.875, beating all baselines (best 0.79). Its official rule needs "two
    adjacent wagons with the **same** load shape". That kind of variable binding is
    outside ALC, and no setting finds it.
-4. Under the open-world assumption with HermiT, learning is 2–3 orders of magnitude
-   slower. Without closure axioms, the ∀/¬ concepts that the closed-world reasoner exploits
-   are not entailed.
+4. Under the open-world assumption with HermiT, each reasoning step is 1–3 orders of
+   magnitude slower. With 5 s the search fails (⊤). With 60 s it recovers the same
+   existential concept (0.90), since ∃-concepts mean the same under both
+   assumptions, whereas ∀/¬ concepts need closure axioms.
 
 # 2. Dataset
 
@@ -189,6 +190,7 @@ Full tables are in `results/summary.md`. Figure 1 compares the main settings.
 | ELTL (EL) | **1.00** | 1.00 | 1.00 | 1.00 | 5.8 | 8.0 s |
 | OCEL | **1.00** | 1.00 | 1.00 | 1.00 | 9.0 | 7.7 s |
 | HermiT OWA, open / closure (5 s) | 0.80 / 0.50 | | | | 3 / 1 | 8 / 12 s |
+| HermiT OWA, open / closure (60 s) | 0.90 / 0.90 | | | 0.91 / 0.91 | 5.0 / 4.6 | 63 / 71 s |
 | Decision tree, positional / aggregate | 0.40 / 0.50 | | | 0.25 / 0.62 | 4.8 / 5 nodes | <0.01 s |
 | Random forest, positional / aggregate | 0.70 / 0.60 | | | 0.73 / 0.67 | ~1000 nodes | 0.25 s |
 
@@ -296,7 +298,25 @@ memorise the noise.
   EL (ELTL) is fine for purely existential targets but cannot express the
   disjunction needed for Michie.
 
-<!-- OWA-RESULTS -->
+## 6.5 Open-world reasoning (HermiT)
+
+| setting (michalski10) | test acc | train acc | candidates tested | concept on all data |
+|---|---|---|---|---|
+| closed-world reasoner, 5 s (reference) | 0.90 | 1.00 | 25,491 | ∃hasCar.(ClosedCar ⊓ ShortCar) |
+| HermiT, open ontology, 5 s | 0.80 | 0.80 | 135 | ∃carCount.[≥3] |
+| HermiT, closure ontology, 5 s | 0.50 | 0.50 | 16 | ⊤ |
+| HermiT, open ontology, 60 s | 0.90 | 0.99 | 4,062 | ∃hasCar.(ClosedCar ⊓ ShortCar) |
+| HermiT, closure ontology, 60 s | 0.90 | 0.97 | 304 | ∃hasCar.(ClosedCar ⊓ ShortCar) |
+
+On Michie's 24 trains, both HermiT settings return ⊤ within 5 s (5–17 candidates
+tested). With a 60 s budget, OWA learning on Michalski's trains recovers the same concept
+in 9 of 11 runs, so the target is learnable under the OWA, because it is purely
+existential. The cost is 12–14× more wall time per fold for a search that is still
+6–80× smaller. One OWA run on the open ontology again returns ≥3 hasCar.¬JaggedTopCar.
+This is interesting because, without the unique-name assumption, "at least 3 wagons" is only entailed when
+the wagons are *provably distinct*. Here that follows from their disjoint asserted
+classes (different shapes or lengths), and ¬JaggedTopCar follows from the
+shape-disjointness axioms. So our disjointness axioms already act as a partial closure.
 
 # 7. Discussion
 
