@@ -1,0 +1,22 @@
+<section id="task">
+<p class="eyebrow">TASK AND DATA</p>
+<h2 class="title">Learn a logical description of eastbound trains</h2>
+<div class="row" style="gap:56px;">
+<div class="col" style="width:640px; gap:28px;">
+<p class="lead">Given an ontology 𝒪 and examples <b>P</b> (east) and <b>N</b> (west), find a class expression <b>C</b> with</p>
+<p class="concept" style="font-size:34px;">𝒪 ⊨ C(a) for a ∈ P<br>𝒪 ⊭ C(b) for b ∈ N</p>
+<p class="lead">A train has 2–4 wagons; each wagon has a shape, length, wheels and 0–3 loads. The data is <b>relational</b>, not a flat table.</p>
+</div>
+<div class="col" style="flex:1; gap:20px;">
+<table class="data" style="font-size:28px;">
+<tr><th style="width:38%;">Learning set</th><th style="width:18%;">Trains</th><th style="width:18%;">Pos / neg</th><th>Evaluation</th></tr>
+<tr><td>Michalski (UCI)</td><td>10</td><td>5 / 5</td><td>leave-one-out</td></tr>
+<tr><td>Michie challenge</td><td>24</td><td>12 / 12</td><td>leave-one-out</td></tr>
+<tr><td>Synthetic</td><td>200</td><td>100 / 100</td><td>5-fold CV</td></tr>
+<tr><td>Synthetic + 10 % noise</td><td>200</td><td>94 / 106</td><td>5-fold CV</td></tr>
+</table>
+<p class="small">10 trains are too few to test generalisation, so we added Michie’s 24 trains (in the same UCI archive) and 200 generated trains with a known hidden rule.</p>
+</div>
+</div>
+<aside>The task: given a knowledge base and positive and negative examples, find a description-logic class expression that covers the positives and none of the negatives. Our data is Michalski's trains: ten trains, five going east and five going west. Each train pulls a variable number of wagons, and each wagon has its own attributes and loads, so it is genuinely relational. Ten examples cannot tell us whether a learner generalises, so we added Michie's 24-train challenge, which ships in the same UCI archive, and 200 synthetic trains labelled by a hidden rule, plus a copy with ten percent of labels flipped. We checked the parsing: Michalski's labels agree 10 out of 10 with the classic rule, and Michie's 24 out of 24 with his published official rule.</aside>
+</section>

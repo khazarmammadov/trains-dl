@@ -1,0 +1,17 @@
+<section id="kb" class="alt">
+<p class="eyebrow">KNOWLEDGE BASE</p>
+<h2 class="title">Rows became individuals, values became classes</h2>
+<div class="row" style="align-items:center; gap:0; margin:0 0 56px;">
+<div class="node"><h3>Train</h3><p class="small">carCount</p></div>
+<div class="edge"><p class="small">hasCar</p><x-connector head="end" style="width:150px; height:2px; color:#2A78D6; border-width:4px;"></x-connector></div>
+<div class="node"><h3>Car</h3><p class="small">ShortCar · ClosedCar · UShapedCar … wheels, position</p></div>
+<div class="edge"><p class="small">hasLoad</p><x-connector head="end" style="width:150px; height:2px; color:#2A78D6; border-width:4px;"></x-connector></div>
+<div class="node"><h3>Load</h3><p class="small">CircleLoad · TriangleLoad …</p></div>
+</div>
+<div class="row">
+<div class="card"><h3>Hierarchy from the data</h3><p class="lead">UShapedCar ⊑ OpenCar, JaggedTopCar ⊑ ClosedCar; sibling classes are disjoint. Car ↦ next car: <span class="mono">inFrontOf</span>.</p></div>
+<div class="card"><h3>No leakage</h3><p class="lead">The direction never appears in the ontology, only in the example lists of the .conf files.</p></div>
+<div class="card"><h3>Two versions</h3><p class="lead">Open ontology, plus a <b>closure</b> version (hasCar only {c1…cn}, AllDifferent) for the open-world test.</p></div>
+</div>
+<aside>We wrote a Python script with rdflib that converts each dataset into an OWL ontology. Every train, wagon and load is an individual. Categorical values become classes, arranged in the open-top versus closed-top hierarchy that comes with the UCI data, and sibling classes are declared disjoint. Relations become object properties: hasCar, hasLoad and inFrontOf for wagon order. Numbers like wheels and position are data properties. Two important choices: the label is never asserted, so nothing leaks; and we built a second version with closure axioms, which says a train has only these wagons, so we could test learning under the open-world assumption.</aside>
+</section>

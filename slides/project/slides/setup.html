@@ -1,0 +1,22 @@
+<section id="setup">
+<p class="eyebrow">EXPERIMENTS</p>
+<h2 class="title">10 DL-Learner settings, each changing one thing</h2>
+<div class="row" style="gap:48px;">
+<div class="col" style="flex:1;">
+<table class="data" style="font-size:27px;">
+<tr><th style="width:36%;">What we varied</th><th>Values</th></tr>
+<tr><td>Hypothesis language</td><td>ALC + numbers · no ¬/∀ · no numbers · EL</td></tr>
+<tr><td>Search algorithm</td><td>CELOE · OCEL · ELTL</td></tr>
+<tr><td>Runtime budget</td><td>1 s · 5 s · 20 s (· 60 s)</td></tr>
+<tr><td>Noise tolerance</td><td>0 % · 10 %</td></tr>
+<tr><td>Reasoner</td><td>closed world · HermiT open world</td></tr>
+</table>
+</div>
+<div class="col" style="width:600px;">
+<div class="card dl"><p class="num">478</p><p class="lead">DL-Learner runs, each with its own .conf file</p></div>
+<div class="card ml"><h3>Baselines, same folds</h3><p class="lead">Decision tree and random forest on two flat encodings: per wagon slot, and per-train counts</p></div>
+</div>
+</div>
+<p class="small" style="margin-top:40px;">Learned concepts are scored on held-out trains with our own closed-world evaluator, which reproduces DL-Learner’s training accuracies exactly.</p>
+<aside>Here is the experimental design. The reference setting is CELOE with the closed-world reasoner, the full ALC language with numbers, and five seconds. Each other setting changes one thing: the language, the search algorithm, the time budget, the noise tolerance, or the reasoner. That is 478 DL-Learner runs in total, all with their .conf files in the repository. DL-Learner only reports training accuracy, so we wrote a small evaluator that applies the learned concept to the held-out trains with the same closed-world semantics. The baselines use exactly the same folds, on two ways of flattening the trains: one column per wagon slot, or counts per attribute value.</aside>
+</section>

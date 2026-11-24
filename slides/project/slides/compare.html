@@ -1,0 +1,23 @@
+<section id="compare">
+<p class="eyebrow">RESULTS ACROSS DATASETS</p>
+<h2 class="title">Concept induction wins when the target is in its language</h2>
+<div class="legend">
+<div class="key"><div class="sw-dl"></div><p class="bar-val">DL-Learner, best setting</p></div>
+<div class="key"><div class="sw-ml"></div><p class="bar-val">Best decision tree or random forest</p></div>
+</div>
+<div class="bars">
+<div class="bar-row"><p class="bar-label">Michalski, 10 trains</p><div class="bar-pair">
+<div class="bar-line"><div class="bar-dl" style="width:900px;"></div><p class="bar-val">DL 1.00</p></div>
+<div class="bar-line"><div class="bar-ml" style="width:630px;"></div><p class="bar-val">ML 0.70</p></div></div></div>
+<div class="bar-row"><p class="bar-label">Michie, 24 trains</p><div class="bar-pair">
+<div class="bar-line"><div class="bar-dl" style="width:788px;"></div><p class="bar-val">DL 0.875</p></div>
+<div class="bar-line"><div class="bar-ml" style="width:711px;"></div><p class="bar-val">ML 0.79</p></div></div></div>
+<div class="bar-row"><p class="bar-label">Synthetic, 200 trains</p><div class="bar-pair">
+<div class="bar-line"><div class="bar-dl" style="width:900px;"></div><p class="bar-val">DL 1.00</p></div>
+<div class="bar-line"><div class="bar-ml" style="width:828px;"></div><p class="bar-val">ML 0.92</p></div></div></div>
+<div class="bar-row"><p class="bar-label">Synthetic, 10 % noise (vs true labels)</p><div class="bar-pair">
+<div class="bar-line"><div class="bar-dl" style="width:900px;"></div><p class="bar-val">DL 1.00</p></div>
+<div class="bar-line"><div class="bar-ml" style="width:756px;"></div><p class="bar-val">ML 0.84</p></div></div></div>
+</div>
+<aside>Here is the overview: test accuracy, pooled over the folds, comparing DL-Learner's best setting with the best tree or forest. On the clean synthetic data, every DL setting recovers the hidden rule exactly in every fold, so test accuracy is 1.00. The best forest reaches 0.92 with about fourteen thousand tree nodes. On Michie's trains, DL-Learner reaches 0.875 against 0.79. On the noisy data, measured against the true labels, DL-Learner's concept is exactly the clean rule. But note "best setting": the next slide shows how much depends on choosing it.</aside>
+</section>

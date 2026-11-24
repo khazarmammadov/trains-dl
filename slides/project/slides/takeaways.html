@@ -1,0 +1,17 @@
+<section id="takeaways">
+<p class="eyebrow">TAKEAWAYS</p>
+<h2 class="title">What each approach gave us</h2>
+<div class="row" style="margin:0 0 64px;">
+<div class="card dl"><h3>Concept induction</h3>
+<p class="tick">“Some wagon is …” is one ∃, whatever the number of wagons</p>
+<p class="tick">Finds the true rule from 9 examples</p>
+<p class="tick">Short, exact rules an expert recognises</p></div>
+<div class="card ml"><h3>Decision trees and forests</h3>
+<p class="tick">Train in milliseconds, no tuning</p>
+<p class="tick">No hard expressivity wall</p>
+<p class="tick">No need to know the noise level</p></div>
+</div>
+<p class="lead">Its success depends on the bias we choose: the language, the noise level, the closed-world assumption, and whether the rule can be written at all.</p>
+<p class="small" style="margin-top:28px;">Code, ontologies and all .conf files: github.com/khazarmammadov/trains-dl</p>
+<aside>To conclude. Concept induction gave us the relational bias for free: "some wagon is short and closed" is a single existential restriction, whatever the number or order of wagons. It recovers the true rule from nine examples, and its rules are short, exact and match what humans wrote. The baselines are fast and need no tuning, have no hard expressivity wall, and don't need to be told the noise level. Overall, symbolic learning works very well, but only with the right bias: language, noise level, closed-world assumption, and a target that is expressible at all. Everything is in our repository. Thank you, we are happy to take questions.</aside>
+</section>

@@ -1,0 +1,82 @@
+:root {
+  --ink: #14213D;
+  --text: #3E4A63;
+  --muted: #6B7386;
+  --paper: #F7F5EF;
+  --paper2: #ECE9E0;
+  --line: #D8D4C8;
+  --blue: #2A78D6;
+  --blue-soft: #E3ECF8;
+  --orange: #D95926;
+  --orange-soft: #FBE6DC;
+  --on-dark: #F7F5EF;
+  --on-dark-soft: #BFC8DA;
+}
+body { font-family: 'IBM Plex Sans', Arial, sans-serif; }
+section {
+  background: var(--paper);
+  color: var(--text);
+  padding: 128px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+section.alt { background: var(--paper2); }
+section.dark { background: var(--ink); color: var(--on-dark-soft); }
+h1, h2, h3 { font-family: 'Space Grotesk', Arial, sans-serif; color: var(--ink); margin: 0; }
+section.dark h1, section.dark h2, section.dark h3 { color: var(--on-dark); }
+.eyebrow { font-family: 'Space Grotesk', Arial, sans-serif; font-size: 24px; font-weight: 600; letter-spacing: 3px; color: var(--blue); margin: 0 0 20px; }
+section.dark .eyebrow { color: #7FB0EE; }
+.title { font-size: 64px; font-weight: 600; line-height: 1.1; margin: 0 0 56px; }
+.lead { font-size: 32px; line-height: 1.45; color: var(--text); margin: 0; }
+section.dark .lead { color: var(--on-dark-soft); }
+.small { font-size: 24px; line-height: 1.4; color: var(--muted); margin: 0; }
+section.dark .small { color: var(--on-dark-soft); }
+.concept { font-family: 'JetBrains Mono', 'Courier New', monospace; font-size: 40px; font-weight: 600; color: var(--ink); background: var(--blue-soft); border-left: 8px solid var(--blue); border-radius: 12px; padding: 28px 36px; margin: 0; }
+.mono { font-family: 'JetBrains Mono', 'Courier New', monospace; }
+
+/* generic cards */
+.row { display: flex; flex-direction: row; gap: 40px; }
+.col { display: flex; flex-direction: column; gap: 24px; }
+.card { background: #FFFFFF; border: 2px solid var(--line); border-radius: 16px; padding: 36px 40px; display: flex; flex-direction: column; gap: 14px; flex: 1; }
+section.alt .card { background: var(--paper); }
+.card h3 { font-size: 36px; font-weight: 600; line-height: 1.15; }
+.card .lead { font-size: 28px; line-height: 1.4; }
+.card .num { font-family: 'Space Grotesk', Arial, sans-serif; font-size: 72px; font-weight: 700; color: var(--blue); line-height: 1; margin: 0; }
+.card .num-ml { font-family: 'Space Grotesk', Arial, sans-serif; font-size: 72px; font-weight: 700; color: var(--orange); line-height: 1; margin: 0; }
+.card.dl { border-top: 8px solid var(--blue); }
+.card.ml { border-top: 8px solid var(--orange); }
+
+/* cover */
+section.cover { justify-content: space-between; }
+.cover .big { font-size: 96px; font-weight: 700; line-height: 1.05; color: var(--on-dark); max-width: 1500px; }
+.cover .sub { font-size: 40px; line-height: 1.35; color: var(--on-dark-soft); margin: 32px 0 0; max-width: 1400px; }
+.cover .team { font-size: 32px; font-weight: 600; color: var(--on-dark); margin: 0; }
+
+/* bar chart */
+.bars { display: flex; flex-direction: column; gap: 36px; }
+.bar-row { display: flex; flex-direction: row; align-items: center; gap: 32px; }
+.bar-label { width: 420px; font-size: 28px; font-weight: 600; color: var(--ink); margin: 0; }
+.bar-pair { display: flex; flex-direction: column; gap: 10px; flex: 1; }
+.bar-line { display: flex; flex-direction: row; align-items: center; gap: 18px; }
+.bar-dl { height: 40px; background: var(--blue); border-radius: 0 8px 8px 0; }
+.bar-ml { height: 40px; background: var(--orange); border-radius: 0 8px 8px 0; }
+.bar-val { font-size: 26px; color: var(--text); margin: 0; white-space: nowrap; }
+.legend { display: flex; flex-direction: row; gap: 48px; margin: 0 0 36px; }
+.key { display: flex; flex-direction: row; align-items: center; gap: 14px; }
+.sw-dl { width: 28px; height: 28px; background: var(--blue); border-radius: 6px; }
+.sw-ml { width: 28px; height: 28px; background: var(--orange); border-radius: 6px; }
+
+/* ontology diagram */
+.node { background: #FFFFFF; border: 3px solid var(--ink); border-radius: 18px; padding: 28px 36px; display: flex; flex-direction: column; gap: 10px; width: 400px; box-sizing: border-box; }
+.node h3 { font-size: 40px; font-weight: 700; }
+.node .small { color: var(--text); }
+.edge { display: flex; flex-direction: column; align-items: center; gap: 8px; width: 170px; }
+.edge .small { font-family: 'JetBrains Mono', 'Courier New', monospace; color: var(--blue); font-weight: 600; }
+
+/* tables */
+table.data { font-size: 28px; color: var(--text); width: 100%; }
+table.data th { color: var(--ink); }
+
+/* takeaway */
+.tick { font-size: 34px; line-height: 1.4; color: var(--text); margin: 0 0 8px; }
