@@ -1,0 +1,800 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rdf:RDF
+   xmlns="http://example.org/trains#"
+   xmlns:owl="http://www.w3.org/2002/07/owl#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+>
+  <rdf:Description rdf:about="http://example.org/trains#B_car4">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/trains#ClosedRectCar"/>
+    <rdf:type rdf:resource="http://example.org/trains#ShortCar"/>
+    <rdf:type rdf:resource="http://example.org/trains#ClosedCar"/>
+    <rdf:type rdf:resource="http://example.org/trains#TwoWheelCar"/>
+    <position rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</position>
+    <wheels rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</wheels>
+    <loadCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</loadCount>
+    <hasLoad rdf:resource="http://example.org/trains#B_car4_load1"/>
+    <hasLoad rdf:resource="http://example.org/trains#B_car4_load2"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/trains#A_car4">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/trains#OpenRectCar"/>
+    <rdf:type rdf:resource="http://example.org/trains#LongCar"/>
+    <rdf:type rdf:resource="http://example.org/trains#OpenCar"/>
+    <rdf:type rdf:resource="http://example.org/trains#ThreeWheelCar"/>
+    <position rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</position>
+    <wheels rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</wheels>
+    <loadCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</loadCount>
+    <hasLoad rdf:resource="http://example.org/trains#A_car4_load1"/>
+    <inFrontOf rdf:resource="http://example.org/trains#A_car5"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/trains#E_car3">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/trains#ClosedRectCar"/>
+    <rdf:type rdf:resource="http://example.org/trains#LongCar"/>
+    <rdf:type rdf:resource="http://example.org/trains#ClosedCar"/>
+    <rdf:type rdf:resource="http://example.org/trains#ThreeWheelCar"/>
+    <position rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</position>
+    <wheels rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</wheels>
+    <loadCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</loadCount>
+    <hasLoad rdf:resource="http://example.org/trains#E_car3_load1"/>
+    <inFrontOf rdf:resource="http://example.org/trains#E_car4"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/trains#hasLoad">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://example.org/trains#Car"/>
+    <rdfs:range rdf:resource="http://example.org/trains#Load"/>
+    <rdfs:comment>a wagon carries a load object</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/trains#E_car2">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/trains#DoubleOpenRectCar"/>
+    <rdf:type rdf:resource="http://example.org/trains#ShortCar"/>
+    <rdf:type rdf:resource="http://example.org/trains#OpenCar"/>
+    <rdf:type rdf:resource="http://example.org/trains#TwoWheelCar"/>
+    <position rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</position>
+    <wheels rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</wheels>
+    <loadCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</loadCount>
+    <hasLoad rdf:resource="http://example.org/trains#E_car2_load1"/>
+    <inFrontOf rdf:resource="http://example.org/trains#E_car3"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/trains#C_car3_load1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/trains#TriangleLoad"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/trains#J_car3">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/trains#OpenRectCar"/>
+    <rdf:type rdf:resource="http://example.org/trains#LongCar"/>
+    <rdf:type rdf:resource="http://example.org/trains#OpenCar"/>
+    <rdf:type rdf:resource="http://example.org/trains#TwoWheelCar"/>
+    <position rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</position>
+    <wheels rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</wheels>
+    <loadCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</loadCount>
+    <hasLoad rdf:resource="http://example.org/trains#J_car3_load1"/>
+    <hasLoad rdf:resource="http://example.org/trains#J_car3_load2"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/trains#UShapedCar">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/trains#OpenCar"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/trains#A_car5">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/trains#OpenRectCar"/>
+    <rdf:type rdf:resource="http://example.org/trains#ShortCar"/>
+    <rdf:type rdf:resource="http://example.org/trains#OpenCar"/>
+    <rdf:type rdf:resource="http://example.org/trains#TwoWheelCar"/>
+    <position rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</position>
+    <wheels rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</wheels>
+    <loadCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</loadCount>
+    <hasLoad rdf:resource="http://example.org/trains#A_car5_load1"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/trains#I_car3">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/trains#JaggedTopCar"/>
+    <rdf:type rdf:resource="http://example.org/trains#LongCar"/>
+    <rdf:type rdf:resource="http://example.org/trains#ClosedCar"/>
+    <rdf:type rdf:resource="http://example.org/trains#TwoWheelCar"/>
+    <position rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</position>
+    <wheels rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</wheels>
+    <loadCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</loadCount>
+    <hasLoad rdf:resource="http://example.org/trains#I_car3_load1"/>
+    <inFrontOf rdf:resource="http://example.org/trains#I_car4"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/trains#trainA">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/trains#Train"/>
+    <carCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</carCount>
+    <hasCar rdf:resource="http://example.org/trains#A_car2"/>
+    <hasCar rdf:resource="http://example.org/trains#A_car3"/>
+    <hasCar rdf:resource="http://example.org/trains#A_car4"/>
+    <hasCar rdf:resource="http://example.org/trains#A_car5"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/trains#D_car2">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/trains#OpenTrapCar"/>
+    <rdf:type rdf:resource="http://example.org/trains#ShortCar"/>
+    <rdf:type rdf:resource="http://example.org/trains#OpenCar"/>
+    <rdf:type rdf:resource="http://example.org/trains#TwoWheelCar"/>
+    <position rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</position>
+    <wheels rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</wheels>
+    <loadCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</loadCount>
+    <hasLoad rdf:resource="http://example.org/trains#D_car2_load1"/>
+    <inFrontOf rdf:resource="http://example.org/trains#D_car3"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/trains#trainE">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/trains#Train"/>
+    <carCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</carCount>
+    <hasCar rdf:resource="http://example.org/trains#E_car2"/>
+    <hasCar rdf:resource="http://example.org/trains#E_car3"/>
+    <hasCar rdf:resource="http://example.org/trains#E_car4"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/trains#H_car3">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/trains#UShapedCar"/>
+    <rdf:type rdf:resource="http://example.org/trains#ShortCar"/>
+    <rdf:type rdf:resource="http://example.org/trains#OpenCar"/>
+    <rdf:type rdf:resource="http://example.org/trains#TwoWheelCar"/>
+    <position rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</position>
+    <wheels rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</wheels>
+    <loadCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</loadCount>
+    <hasLoad rdf:resource="http://example.org/trains#H_car3_load1"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/trains#inFrontOf">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="http://example.org/trains#Car"/>
+    <rdfs:range rdf:resource="http://example.org/trains#Car"/>
+    <rdfs:comment>c1 inFrontOf c2: c1 is directly in front of c2 in the same train</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/trains#trainI">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/trains#Train"/>
+    <carCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</carCount>
+    <hasCar rdf:resource="http://example.org/trains#I_car2"/>
+    <hasCar rdf:resource="http://example.org/trains#I_car3"/>
+    <hasCar rdf:resource="http://example.org/trains#I_car4"/>
+    <hasCar rdf:resource="http://example.org/trains#I_car5"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/trains#I_car4">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/trains#OpenRectCar"/>
+    <rdf:type rdf:resource="http://example.org/trains#ShortCar"/>
+    <rdf:type rdf:resource="http://example.org/trains#OpenCar"/>
+    <rdf:type rdf:resource="http://example.org/trains#TwoWheelCar"/>
+    <position rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</position>
+    <wheels rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</wheels>
+    <loadCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</loadCount>
+    <hasLoad rdf:resource="http://example.org/trains#I_car4_load1"/>
+    <inFrontOf rdf:resource="http://example.org/trains#I_car5"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/trains#HexagonCar">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/trains#ClosedCar"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/trains#trainB">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/trains#Train"/>
+    <carCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</carCount>
+    <hasCar rdf:resource="http://example.org/trains#B_car2"/>
+    <hasCar rdf:resource="http://example.org/trains#B_car3"/>
+    <hasCar rdf:resource="http://example.org/trains#B_car4"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/trains#TwoWheelCar">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/trains#Car"/>
+    <owl:disjointWith rdf:resource="http://example.org/trains#ThreeWheelCar"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/trains#wheels">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="http://example.org/trains#Car"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <rdfs:comment>number of wheels per side</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/trains#C_car4">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/trains#ClosedRectCar"/>
+    <rdf:type rdf:resource="http://example.org/trains#LongCar"/>
+    <rdf:type rdf:resource="http://example.org/trains#ClosedCar"/>
+    <rdf:type rdf:resource="http://example.org/trains#ThreeWheelCar"/>
+    <position rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</position>
+    <wheels rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</wheels>
+    <loadCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</loadCount>
+    <hasLoad rdf:resource="http://example.org/trains#C_car4_load1"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nf2fd4550ea954481af018d93f629a3a3">
+    <rdf:first rdf:resource="http://example.org/trains#OpenTrapCar"/>
+    <rdf:rest rdf:nodeID="N450389f2866442e79bb7a23c8e1ef39c"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/trains#E_car3_load1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/trains#RectangleLoad"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/trains#RectangleLoad">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/trains#Load"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/trains#loadCount">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="http://example.org/trains#Car"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <rdfs:comment>number of loads on the wagon</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nc91264a2f3bf457090c78fad198d08ca">
+    <rdf:first rdf:resource="http://example.org/trains#ClosedRectCar"/>
+    <rdf:rest rdf:nodeID="Nd1056fd3db204a9896a7cb21787a3b1c"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/trains#F_car3_load1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/trains#TriangleLoad"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/trains#D_car5">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/trains#OpenRectCar"/>
+    <rdf:type rdf:resource="http://example.org/trains#ShortCar"/>
+    <rdf:type rdf:resource="http://example.org/trains#OpenCar"/>
+    <rdf:type rdf:resource="http://example.org/trains#TwoWheelCar"/>
+    <position rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</position>
+    <wheels rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</wheels>
+    <loadCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</loadCount>
+    <hasLoad rdf:resource="http://example.org/trains#D_car5_load1"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N450389f2866442e79bb7a23c8e1ef39c">
+    <rdf:first rdf:resource="http://example.org/trains#SlopeTopCar"/>
+    <rdf:rest rdf:nodeID="N0571817d88fa407aa24fc6ac77aa9939"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/trains#G_car2">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/trains#DoubleOpenRectCar"/>
+    <rdf:type rdf:resource="http://example.org/trains#ShortCar"/>
+    <rdf:type rdf:resource="http://example.org/trains#OpenCar"/>
+    <rdf:type rdf:resource="http://example.org/trains#TwoWheelCar"/>
+    <position rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</position>
+    <wheels rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</wheels>
+    <loadCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</loadCount>
+    <hasLoad rdf:resource="http://example.org/trains#G_car2_load1"/>
+    <inFrontOf rdf:resource="http://example.org/trains#G_car3"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/trains#trainD">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/trains#Train"/>
+    <carCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</carCount>
+    <hasCar rdf:resource="http://example.org/trains#D_car2"/>
+    <hasCar rdf:resource="http://example.org/trains#D_car3"/>
+    <hasCar rdf:resource="http://example.org/trains#D_car4"/>
+    <hasCar rdf:resource="http://example.org/trains#D_car5"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Ne9b079ee37064026bf072077934add78">
+    <rdf:first rdf:resource="http://example.org/trains#HexagonCar"/>
+    <rdf:rest rdf:nodeID="N467009f4130b45ac8a309f3a77c7bf15"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/trains#trainC">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/trains#Train"/>
+    <carCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</carCount>
+    <hasCar rdf:resource="http://example.org/trains#C_car2"/>
+    <hasCar rdf:resource="http://example.org/trains#C_car3"/>
+    <hasCar rdf:resource="http://example.org/trains#C_car4"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/trains#A_car3">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/trains#SlopeTopCar"/>
+    <rdf:type rdf:resource="http://example.org/trains#ShortCar"/>
+    <rdf:type rdf:resource="http://example.org/trains#ClosedCar"/>
+    <rdf:type rdf:resource="http://example.org/trains#TwoWheelCar"/>
+    <position rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</position>
+    <wheels rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</wheels>
+    <loadCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</loadCount>
+    <hasLoad rdf:resource="http://example.org/trains#A_car3_load1"/>
+    <inFrontOf rdf:resource="http://example.org/trains#A_car4"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Na6c33a1c3ae14c01ad2d6a8b6505f1af">
+    <rdf:first rdf:resource="http://example.org/trains#Car"/>
+    <rdf:rest rdf:nodeID="N99093bb9593c4a128f25be94d434e1bd"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/trains#trainG">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/trains#Train"/>
+    <carCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</carCount>
+    <hasCar rdf:resource="http://example.org/trains#G_car2"/>
+    <hasCar rdf:resource="http://example.org/trains#G_car3"/>
+    <hasCar rdf:resource="http://example.org/trains#G_car4"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/trains#LongCar">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/trains#Car"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/trains#C_car3">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/trains#HexagonCar"/>
+    <rdf:type rdf:resource="http://example.org/trains#ShortCar"/>
+    <rdf:type rdf:resource="http://example.org/trains#ClosedCar"/>
+    <rdf:type rdf:resource="http://example.org/trains#TwoWheelCar"/>
+    <position rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</position>
+    <wheels rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</wheels>
+    <loadCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</loadCount>
+    <hasLoad rdf:resource="http://example.org/trains#C_car3_load1"/>
+    <inFrontOf rdf:resource="http://example.org/trains#C_car4"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nc4a468bebcaa4a8181a0f8252153aacc">
+    <rdf:first rdf:resource="http://example.org/trains#OpenRectCar"/>
+    <rdf:rest rdf:nodeID="Nf2fd4550ea954481af018d93f629a3a3"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/trains#I_car4_load1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/trains#RectangleLoad"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/trains#E_car4">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/trains#ClosedRectCar"/>
+    <rdf:type rdf:resource="http://example.org/trains#ShortCar"/>
+    <rdf:type rdf:resource="http://example.org/trains#ClosedCar"/>
+    <rdf:type rdf:resource="http://example.org/trains#TwoWheelCar"/>
+    <position rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</position>
+    <wheels rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</wheels>
+    <loadCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</loadCount>
+    <hasLoad rdf:resource="http://example.org/trains#E_car4_load1"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/trains#A_car3_load1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/trains#TriangleLoad"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/trains#B_car2_load1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/trains#TriangleLoad"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/trains#A_car5_load1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/trains#CircleLoad"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nb97a11b0c65545a3a8fe43b6bc25e25b">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+    <owl:members rdf:nodeID="N5a967c29929b4bd6b87eb94a53cb397f"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N99093bb9593c4a128f25be94d434e1bd">
+    <rdf:first rdf:resource="http://example.org/trains#Load"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/trains#EllipseCar">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/trains#ClosedCar"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/trains#I_car2">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/trains#OpenTrapCar"/>
+    <rdf:type rdf:resource="http://example.org/trains#ShortCar"/>
+    <rdf:type rdf:resource="http://example.org/trains#OpenCar"/>
+    <rdf:type rdf:resource="http://example.org/trains#TwoWheelCar"/>
+    <position rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</position>
+    <wheels rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</wheels>
+    <loadCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</loadCount>
+    <hasLoad rdf:resource="http://example.org/trains#I_car2_load1"/>
+    <inFrontOf rdf:resource="http://example.org/trains#I_car3"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/trains#J_car3_load1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/trains#RectangleLoad"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/trains#H_car2_load1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/trains#RectangleLoad"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/trains#OpenCar">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:comment>car without a roof (open top)</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://example.org/trains#Car"/>
+    <owl:disjointWith rdf:resource="http://example.org/trains#ClosedCar"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nee2d5f1f4eca4c5982cf0505a4a031e5">
+    <rdf:first rdf:resource="http://example.org/trains#RectangleLoad"/>
+    <rdf:rest rdf:nodeID="N43a21415214d46cd8882571953e308d0"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/trains#A_car2">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/trains#OpenRectCar"/>
+    <rdf:type rdf:resource="http://example.org/trains#LongCar"/>
+    <rdf:type rdf:resource="http://example.org/trains#OpenCar"/>
+    <rdf:type rdf:resource="http://example.org/trains#TwoWheelCar"/>
+    <position rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</position>
+    <wheels rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</wheels>
+    <loadCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</loadCount>
+    <hasLoad rdf:resource="http://example.org/trains#A_car2_load1"/>
+    <hasLoad rdf:resource="http://example.org/trains#A_car2_load2"/>
+    <hasLoad rdf:resource="http://example.org/trains#A_car2_load3"/>
+    <inFrontOf rdf:resource="http://example.org/trains#A_car3"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/trains#carCount">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="http://example.org/trains#Train"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <rdfs:comment>number of wagons (engine excluded)</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/trains#J_car3_load2">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/trains#RectangleLoad"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/trains#position">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#DatatypeProperty"/>
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+    <rdfs:domain rdf:resource="http://example.org/trains#Car"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#integer"/>
+    <rdfs:comment>position of the wagon in the train (engine = 1)</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/trains#I_car5_load1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/trains#CircleLoad"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/trains#B_car2">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/trains#UShapedCar"/>
+    <rdf:type rdf:resource="http://example.org/trains#ShortCar"/>
+    <rdf:type rdf:resource="http://example.org/trains#OpenCar"/>
+    <rdf:type rdf:resource="http://example.org/trains#TwoWheelCar"/>
+    <position rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</position>
+    <wheels rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</wheels>
+    <loadCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</loadCount>
+    <hasLoad rdf:resource="http://example.org/trains#B_car2_load1"/>
+    <inFrontOf rdf:resource="http://example.org/trains#B_car3"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/trains#B_car4_load2">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/trains#CircleLoad"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/trains#B_car4_load1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/trains#CircleLoad"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/trains#G_car3">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/trains#UShapedCar"/>
+    <rdf:type rdf:resource="http://example.org/trains#ShortCar"/>
+    <rdf:type rdf:resource="http://example.org/trains#OpenCar"/>
+    <rdf:type rdf:resource="http://example.org/trains#TwoWheelCar"/>
+    <position rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</position>
+    <wheels rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</wheels>
+    <loadCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</loadCount>
+    <hasLoad rdf:resource="http://example.org/trains#G_car3_load1"/>
+    <inFrontOf rdf:resource="http://example.org/trains#G_car4"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/trains#H_car2">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/trains#ClosedRectCar"/>
+    <rdf:type rdf:resource="http://example.org/trains#LongCar"/>
+    <rdf:type rdf:resource="http://example.org/trains#ClosedCar"/>
+    <rdf:type rdf:resource="http://example.org/trains#ThreeWheelCar"/>
+    <position rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</position>
+    <wheels rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</wheels>
+    <loadCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</loadCount>
+    <hasLoad rdf:resource="http://example.org/trains#H_car2_load1"/>
+    <inFrontOf rdf:resource="http://example.org/trains#H_car3"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/trains#I_car5">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/trains#OpenTrapCar"/>
+    <rdf:type rdf:resource="http://example.org/trains#ShortCar"/>
+    <rdf:type rdf:resource="http://example.org/trains#OpenCar"/>
+    <rdf:type rdf:resource="http://example.org/trains#TwoWheelCar"/>
+    <position rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">5</position>
+    <wheels rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</wheels>
+    <loadCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</loadCount>
+    <hasLoad rdf:resource="http://example.org/trains#I_car5_load1"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/trains#E_car4_load1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/trains#CircleLoad"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/trains#trainH">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/trains#Train"/>
+    <carCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</carCount>
+    <hasCar rdf:resource="http://example.org/trains#H_car2"/>
+    <hasCar rdf:resource="http://example.org/trains#H_car3"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/trains#F_car2_load3">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/trains#CircleLoad"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/trains#hasCar">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#ObjectProperty"/>
+    <rdfs:domain rdf:resource="http://example.org/trains#Train"/>
+    <rdfs:range rdf:resource="http://example.org/trains#Car"/>
+    <rdfs:comment>a train has a wagon (engine excluded)</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N31e27764a46343f8b63468f5016ed00e">
+    <rdf:first rdf:resource="http://example.org/trains#Train"/>
+    <rdf:rest rdf:nodeID="Na6c33a1c3ae14c01ad2d6a8b6505f1af"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/trains#F_car2">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/trains#ClosedRectCar"/>
+    <rdf:type rdf:resource="http://example.org/trains#LongCar"/>
+    <rdf:type rdf:resource="http://example.org/trains#ClosedCar"/>
+    <rdf:type rdf:resource="http://example.org/trains#TwoWheelCar"/>
+    <position rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</position>
+    <wheels rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</wheels>
+    <loadCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</loadCount>
+    <hasLoad rdf:resource="http://example.org/trains#F_car2_load1"/>
+    <hasLoad rdf:resource="http://example.org/trains#F_car2_load2"/>
+    <hasLoad rdf:resource="http://example.org/trains#F_car2_load3"/>
+    <inFrontOf rdf:resource="http://example.org/trains#F_car3"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/trains#I_car2_load1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/trains#CircleLoad"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/trains#G_car2_load1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/trains#CircleLoad"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/trains#OpenTrapCar">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/trains#OpenCar"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/trains#D_car4">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/trains#EllipseCar"/>
+    <rdf:type rdf:resource="http://example.org/trains#ShortCar"/>
+    <rdf:type rdf:resource="http://example.org/trains#ClosedCar"/>
+    <rdf:type rdf:resource="http://example.org/trains#TwoWheelCar"/>
+    <position rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</position>
+    <wheels rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</wheels>
+    <loadCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</loadCount>
+    <hasLoad rdf:resource="http://example.org/trains#D_car4_load1"/>
+    <inFrontOf rdf:resource="http://example.org/trains#D_car5"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/trains#C_car2">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/trains#OpenRectCar"/>
+    <rdf:type rdf:resource="http://example.org/trains#ShortCar"/>
+    <rdf:type rdf:resource="http://example.org/trains#OpenCar"/>
+    <rdf:type rdf:resource="http://example.org/trains#TwoWheelCar"/>
+    <position rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</position>
+    <wheels rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</wheels>
+    <loadCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</loadCount>
+    <hasLoad rdf:resource="http://example.org/trains#C_car2_load1"/>
+    <inFrontOf rdf:resource="http://example.org/trains#C_car3"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/trains#F_car2_load2">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/trains#CircleLoad"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/trains#HexagonLoad">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/trains#Load"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/trains#D_car3">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/trains#DoubleOpenRectCar"/>
+    <rdf:type rdf:resource="http://example.org/trains#ShortCar"/>
+    <rdf:type rdf:resource="http://example.org/trains#OpenCar"/>
+    <rdf:type rdf:resource="http://example.org/trains#TwoWheelCar"/>
+    <position rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</position>
+    <wheels rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</wheels>
+    <loadCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</loadCount>
+    <hasLoad rdf:resource="http://example.org/trains#D_car3_load1"/>
+    <inFrontOf rdf:resource="http://example.org/trains#D_car4"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/trains#ShortCar">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/trains#Car"/>
+    <owl:disjointWith rdf:resource="http://example.org/trains#LongCar"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/trains#trainJ">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/trains#Train"/>
+    <carCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</carCount>
+    <hasCar rdf:resource="http://example.org/trains#J_car2"/>
+    <hasCar rdf:resource="http://example.org/trains#J_car3"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/trains#OpenRectCar">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/trains#OpenCar"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/trains#B_car3">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/trains#OpenTrapCar"/>
+    <rdf:type rdf:resource="http://example.org/trains#ShortCar"/>
+    <rdf:type rdf:resource="http://example.org/trains#OpenCar"/>
+    <rdf:type rdf:resource="http://example.org/trains#TwoWheelCar"/>
+    <position rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</position>
+    <wheels rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</wheels>
+    <loadCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</loadCount>
+    <hasLoad rdf:resource="http://example.org/trains#B_car3_load1"/>
+    <inFrontOf rdf:resource="http://example.org/trains#B_car4"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/trains#H_car3_load1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/trains#CircleLoad"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/trains#ClosedCar">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:comment>car with a roof (closed top)</rdfs:comment>
+    <rdfs:subClassOf rdf:resource="http://example.org/trains#Car"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N43a21415214d46cd8882571953e308d0">
+    <rdf:first rdf:resource="http://example.org/trains#TriangleLoad"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/trains#A_car2_load2">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/trains#RectangleLoad"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/trains#C_car2_load1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/trains#CircleLoad"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/trains#trainF">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/trains#Train"/>
+    <carCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</carCount>
+    <hasCar rdf:resource="http://example.org/trains#F_car2"/>
+    <hasCar rdf:resource="http://example.org/trains#F_car3"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/trains/michalski10">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+    <rdfs:comment>Michalski's 10 trains (UCI #103); positive = eastbound</rdfs:comment>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/trains#F_car3">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/trains#OpenRectCar"/>
+    <rdf:type rdf:resource="http://example.org/trains#ShortCar"/>
+    <rdf:type rdf:resource="http://example.org/trains#OpenCar"/>
+    <rdf:type rdf:resource="http://example.org/trains#TwoWheelCar"/>
+    <position rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">3</position>
+    <wheels rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</wheels>
+    <loadCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</loadCount>
+    <hasLoad rdf:resource="http://example.org/trains#F_car3_load1"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N7fc8aa546bb44b8bbdb78185ace58bb2">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+    <owl:members rdf:nodeID="N31e27764a46343f8b63468f5016ed00e"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/trains#F_car2_load1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/trains#CircleLoad"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/trains#G_car4">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/trains#JaggedTopCar"/>
+    <rdf:type rdf:resource="http://example.org/trains#LongCar"/>
+    <rdf:type rdf:resource="http://example.org/trains#ClosedCar"/>
+    <rdf:type rdf:resource="http://example.org/trains#TwoWheelCar"/>
+    <position rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">4</position>
+    <wheels rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</wheels>
+    <loadCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</loadCount>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/trains#DoubleOpenRectCar">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/trains#OpenCar"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/trains#ThreeWheelCar">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/trains#Car"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/trains#J_car2_load1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/trains#RectangleLoad"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/trains#D_car4_load1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/trains#RectangleLoad"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/trains#D_car5_load1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/trains#RectangleLoad"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/trains#A_car2_load1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/trains#RectangleLoad"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/trains#B_car3_load1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/trains#RectangleLoad"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Naf1410e4951946f0b20e085401dff7a3">
+    <rdf:first rdf:resource="http://example.org/trains#HexagonLoad"/>
+    <rdf:rest rdf:nodeID="Nee2d5f1f4eca4c5982cf0505a4a031e5"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/trains#I_car3_load1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/trains#RectangleLoad"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/trains#C_car4_load1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/trains#TriangleLoad"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/trains#Train">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/trains#J_car2">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/trains#UShapedCar"/>
+    <rdf:type rdf:resource="http://example.org/trains#ShortCar"/>
+    <rdf:type rdf:resource="http://example.org/trains#OpenCar"/>
+    <rdf:type rdf:resource="http://example.org/trains#TwoWheelCar"/>
+    <position rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</position>
+    <wheels rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">2</wheels>
+    <loadCount rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">1</loadCount>
+    <hasLoad rdf:resource="http://example.org/trains#J_car2_load1"/>
+    <inFrontOf rdf:resource="http://example.org/trains#J_car3"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/trains#A_car2_load3">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/trains#RectangleLoad"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nf7ac7b07015c48b983df6982c80c346a">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#AllDisjointClasses"/>
+    <owl:members rdf:nodeID="Nc91264a2f3bf457090c78fad198d08ca"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/trains#Car">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/trains#Load">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/trains#ClosedRectCar">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/trains#ClosedCar"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N467009f4130b45ac8a309f3a77c7bf15">
+    <rdf:first rdf:resource="http://example.org/trains#JaggedTopCar"/>
+    <rdf:rest rdf:nodeID="Nc4a468bebcaa4a8181a0f8252153aacc"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N0571817d88fa407aa24fc6ac77aa9939">
+    <rdf:first rdf:resource="http://example.org/trains#UShapedCar"/>
+    <rdf:rest rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#nil"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="N5a967c29929b4bd6b87eb94a53cb397f">
+    <rdf:first rdf:resource="http://example.org/trains#CircleLoad"/>
+    <rdf:rest rdf:nodeID="Naf1410e4951946f0b20e085401dff7a3"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nc395296f9a7d441580d4fa83014a14d5">
+    <rdf:first rdf:resource="http://example.org/trains#EllipseCar"/>
+    <rdf:rest rdf:nodeID="Ne9b079ee37064026bf072077934add78"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/trains#G_car3_load1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/trains#TriangleLoad"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/trains#D_car2_load1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/trains#TriangleLoad"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/trains#SlopeTopCar">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/trains#ClosedCar"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/trains#TriangleLoad">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/trains#Load"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/trains#D_car3_load1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/trains#TriangleLoad"/>
+  </rdf:Description>
+  <rdf:Description rdf:nodeID="Nd1056fd3db204a9896a7cb21787a3b1c">
+    <rdf:first rdf:resource="http://example.org/trains#DoubleOpenRectCar"/>
+    <rdf:rest rdf:nodeID="Nc395296f9a7d441580d4fa83014a14d5"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/trains#E_car2_load1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/trains#TriangleLoad"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/trains#A_car4_load1">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="http://example.org/trains#HexagonLoad"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/trains#JaggedTopCar">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/trains#ClosedCar"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="http://example.org/trains#CircleLoad">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:subClassOf rdf:resource="http://example.org/trains#Load"/>
+  </rdf:Description>
+</rdf:RDF>
