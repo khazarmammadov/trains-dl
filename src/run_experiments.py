@@ -123,7 +123,9 @@ TESTED_RE = re.compile(r"(\d+) descriptions tested")
 def parse_output(out: str) -> dict:
     i = out.rfind("solutions")
     m = SOL_RE.search(out, i if i >= 0 else 0)
-    concept = m.group(1).replace("ex:", "").replace("<" + PREFIX, "").replace(">", "") if m else None
+    concept = None
+    if m:  # strip prefixes / full IRIs (but keep the >= / <= facet operators!)
+        concept = re.sub(r"<[^<>\s]*#(\w+)>", r"\1", m.group(1)).replace("ex:", "")
     tested = TESTED_RE.findall(out)
     return {"concept": concept, "tested": int(tested[-1]) if tested else None}
 
@@ -158,12 +160,17 @@ def run_one(s: dict, dataset: str, fold: str, train_ids, test_ids, labels) -> di
 
     run_dir = RUNS / s["name"] / dataset / fold
     run_dir.mkdir(parents=True, exist_ok=True)
-    t0 = time.time()
-    proc = subprocess.run([str(DLCLI), str(conf_path)], cwd=run_dir,
-                          capture_output=True, text=True, timeout=s["time"] * 20 + 120)
-    wall = time.time() - t0
-    out = proc.stdout + proc.stderr
-    (run_dir / "output.txt").write_text(out)
+    out_file, wall_file = run_dir / "output.txt", run_dir / "wall.txt"
+    if out_file.exists() and wall_file.exists() and not FORCE:  # resume
+        out, wall = out_file.read_text(), float(wall_file.read_text())
+    else:
+        t0 = time.time()
+        proc = subprocess.run([str(DLCLI), str(conf_path)], cwd=run_dir,
+                              capture_output=True, text=True, timeout=s["time"] * 20 + 120)
+        wall = time.time() - t0
+        out = proc.stdout + proc.stderr
+        out_file.write_text(out)
+        wall_file.write_text(f"{wall:.3f}")
     parsed = parse_output(out)
 
     row = {"setting": s["name"], "dataset": dataset, "fold": fold,
@@ -174,7 +181,15 @@ def run_one(s: dict, dataset: str, fold: str, train_ids, test_ids, labels) -> di
     if parsed["concept"] is None:
         row["error"] = "no solution parsed (see %s)" % (run_dir / "output.txt")
         return row
-    c = parse(parsed["concept"])
+    try:
+        return _evaluate(row, parsed["concept"], dataset, train_ids, test_ids, labels)
+    except Exception as e:  # never let one odd concept kill the whole grid
+        row["error"] = f"evaluation failed: {e!r}"
+        return row
+
+
+def _evaluate(row, concept, dataset, train_ids, test_ids, labels) -> dict:
+    c = parse(concept)
     m = model_for(dataset)
     row.update(concept_dl=to_dl(c), length=length(c), depth=depth(c))
     ptr = m.classify(c, train_ids)
@@ -187,6 +202,8 @@ def run_one(s: dict, dataset: str, fold: str, train_ids, test_ids, labels) -> di
     return row
 
 
+FORCE = False
+
 FIELDS = ["setting", "dataset", "fold", "n_train", "n_test", "concept", "concept_dl",
           "length", "depth", "train_acc", "tp", "tn", "fp", "fn", "wall_s", "tested",
           "test_pred", "error"]
@@ -197,7 +214,10 @@ def main() -> None:
     ap.add_argument("settings", nargs="*", default=list(SETTINGS))
     ap.add_argument("--jobs", type=int, default=4)
     ap.add_argument("--datasets", nargs="*")
+    ap.add_argument("--force", action="store_true", help="re-run even if output exists")
     args = ap.parse_args()
+    global FORCE
+    FORCE = args.force
 
     jobs = []
     for name in args.settings:
@@ -215,29 +235,38 @@ def main() -> None:
         model_for(ds)
     print(f"{len(jobs)} DL-Learner runs, {args.jobs} in parallel")
 
-    rows = []
+    rows: list[dict] = []
     with ThreadPoolExecutor(args.jobs) as pool:
         futs = {pool.submit(run_one, *j): j for j in jobs}
         for n, fut in enumerate(as_completed(futs), 1):
-            r = fut.result()
+            j = futs[fut]
+            try:
+                r = fut.result()
+            except Exception as e:  # e.g. timeout
+                r = {"setting": j[0]["name"], "dataset": j[1], "fold": j[2],
+                     "wall_s": float("nan"), "error": repr(e)}
             rows.append(r)
             print(f"[{n}/{len(jobs)}] {r['setting']:18s} {r['dataset']:21s} {r['fold']:7s} "
                   f"{r['wall_s']:6.1f}s  {r.get('concept_dl') or r.get('error')}", flush=True)
+            if n % 20 == 0:
+                save(rows)
+    save(rows)
 
-    # merge with existing results (re-running a setting replaces its rows)
+
+def save(rows: list[dict]) -> None:
+    """Merge rows into results/dl_runs.csv (re-run (setting, dataset) rows replace old ones)."""
     out = RESULTS / "dl_runs.csv"
+    keys = {(r["setting"], r["dataset"], r["fold"]) for r in rows}
     old = []
     if out.exists():
-        done = {(r["setting"], r["dataset"]) for r in rows}
         with out.open() as f:
-            old = [r for r in csv.DictReader(f) if (r["setting"], r["dataset"]) not in done]
+            old = [r for r in csv.DictReader(f) if (r["setting"], r["dataset"], r["fold"]) not in keys]
     allrows = sorted(old + rows, key=lambda r: (r["setting"], r["dataset"], r["fold"]))
     with out.open("w", newline="") as f:
         w = csv.DictWriter(f, fieldnames=FIELDS, extrasaction="ignore")
         w.writeheader()
         w.writerows(allrows)
-    print(f"wrote {out} ({len(allrows)} rows)")
-
+    print(f"saved {out.name} ({len(allrows)} rows)", flush=True)
 
 if __name__ == "__main__":
     main()
