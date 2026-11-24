@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+*.pyc
+.DS_Store
+tools/dllearner-1.5.0/
+results/runs/
+*.log
+submission/
+*.zip
