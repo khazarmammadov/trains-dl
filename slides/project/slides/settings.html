@@ -1,5 +1,5 @@
 <section id="settings" class="alt">
-<p class="eyebrow">EFFECT OF THE SETTINGS</p>
+<p class="eyebrow">STEPS 4–5 · EFFECT OF THE SETTINGS</p>
 <h2 class="title">The bias you choose matters more than search time</h2>
 <div class="row" style="margin:0 0 40px;">
 <div class="card dl"><h3>Language</h3><p class="lead">Michie: <b>0.625 → 0.875</b> after removing ¬ and ∀. A richer language finds more spurious concepts that fit 23 trains.</p></div>
@@ -9,5 +9,6 @@
 <div class="card dl"><h3>Runtime</h3><p class="lead">Easy targets: 1 s is enough. Michie: <b>0.625</b> at 1–5 s, <b>0.875</b> at 20 s (155k candidates).</p></div>
 <div class="card dl"><h3>Search algorithm</h3><p class="lead">OCEL returns longer concepts (length 9–19 vs 5) and no answer unless one is 100 % correct on training.</p></div>
 </div>
+<div class="foot"><p>Team 6 · Concept Induction on Michalski’s Trains</p><p class="pnum"></p></div>
 <aside>What did each setting change? First, language. On Michie's trains, the full ALC language scores 0.625; removing negation and universal restrictions jumps to 0.875. With only 23 training trains, a bigger hypothesis space contains more short, wrong concepts that fit perfectly. The same happened on Michalski fold 8: CELOE picked "at least three non-jagged wagons". Second, noise: with noise tolerance zero, CELOE overfits the flipped labels; allowing ten percent gives the exact true rule. Third, runtime mostly matters on the hard problem. Finally, OCEL lacks CELOE's preference for short concepts.</aside>
 </section>

@@ -1,5 +1,5 @@
 <section id="kb" class="alt">
-<p class="eyebrow">KNOWLEDGE BASE</p>
+<p class="eyebrow">STEP 2 · KNOWLEDGE BASE</p>
 <h2 class="title">Rows became individuals, values became classes</h2>
 <div class="row" style="align-items:center; gap:0; margin:0 0 56px;">
 <div class="node"><h3>Train</h3><p class="small">carCount</p></div>
@@ -13,5 +13,6 @@
 <div class="card"><h3>No leakage</h3><p class="lead">The direction never appears in the ontology, only in the example lists of the .conf files.</p></div>
 <div class="card"><h3>Two versions</h3><p class="lead">Open ontology, plus a <b>closure</b> version (hasCar only {c1…cn}, AllDifferent) for the open-world test.</p></div>
 </div>
+<div class="foot"><p>Team 6 · Concept Induction on Michalski’s Trains</p><p class="pnum"></p></div>
 <aside>We wrote a Python script with rdflib that converts each dataset into an OWL ontology. Every train, wagon and load is an individual. Categorical values become classes, arranged in the open-top versus closed-top hierarchy that comes with the UCI data, and sibling classes are declared disjoint. Relations become object properties: hasCar, hasLoad and inFrontOf for wagon order. Numbers like wheels and position are data properties. Two important choices: the label is never asserted, so nothing leaks; and we built a second version with closure axioms, which says a train has only these wagons, so we could test learning under the open-world assumption.</aside>
 </section>

@@ -1,0 +1,15 @@
+<section id="concepts" class="dark">
+<p class="eyebrow">STEP 5 · INTERPRETING THE CONCEPTS</p>
+<h2 class="title" style="margin:0 0 40px;">Would an expert accept them? Mostly yes</h2>
+<div class="irows">
+<div class="irow"><p class="tag tag-good">MEANINGFUL</p><p class="expr">∃hasCar.(ClosedCar ⊓ ShortCar)</p><p class="why">Michalski’s 1977 rule; every synthetic fold</p></div>
+<div class="irow"><p class="tag tag-good">MEANINGFUL</p><p class="expr">∃hasCar.(DoubleWallCar ⊔ PeakedRoofCar ⊔ (ClosedCar ⊓ RectangleCar))</p><p class="why">Michie, 21 of 24 folds; human entrants used the same conditions</p></div>
+<div class="irow"><p class="tag tag-bad">SPURIOUS</p><p class="expr">≥3 hasCar.¬JaggedTopCar</p><p class="why">Fits 9 trains (fold 8), wrong on the 10th</p></div>
+<div class="irow"><p class="tag tag-bad">SPURIOUS</p><p class="expr">∀hasCar.(ClosedCar ⊔ ShortCar)</p><p class="why">Michie, 6 of 24 folds; a closed-world artefact</p></div>
+<div class="irow"><p class="tag tag-meh">TRIVIAL</p><p class="expr">⊤</p><p class="why">HermiT at 5 s: the search never got going</p></div>
+<div class="irow"><p class="tag tag-meh">TOO LONG</p><p class="expr">… ⊓ ∃carCount.[≥3]</p><p class="why">OCEL adds redundant parts: length 9 here, 19 on Michie</p></div>
+<div class="irow" style="border-bottom:none;"><p class="tag tag-bad">BASELINE</p><p class="expr" style="font-family:'IBM Plex Sans', Arial, sans-serif;">car 3 has no load → west; car 4 open trapezoid → west</p><p class="why">The decision tree: consistent, but meaningless</p></div>
+</div>
+<div class="foot"><p>Team 6 · Concept Induction on Michalski’s Trains</p><p class="pnum"></p></div>
+<aside>What do the concepts mean? The two main ones are meaningful: "has a short closed wagon" is exactly Michalski's own 1977 rule, and on Michie's trains the learned concept uses the same peaked-roof and double-wall conditions as the human entrants in his competition. But we also found spurious concepts: in fold 8, "at least three non-jagged wagons" fits nine trains and fails on the tenth; and "all wagons are closed or short" only works because of the closed-world assumption. Trivial results, plain top, only appear when HermiT runs out of time, and OCEL tends to add redundant conjuncts. Compare the decision tree, whose rule about wagon slots is consistent with the data but means nothing.</aside>
+</section>

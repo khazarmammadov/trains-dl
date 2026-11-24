@@ -1,0 +1,15 @@
+<section id="problem" class="alt">
+<p class="eyebrow">STEP 3 · LEARNING PROBLEM</p>
+<h2 class="title">What we asked DL-Learner to learn, and how we tested it</h2>
+<div class="row" style="margin:0 0 36px;">
+<div class="card"><h3>Target and examples</h3><p class="lead" style="font-size:27px;"><b>P</b> = eastbound trains (Michie: “OK”), <b>N</b> = the rest. Balanced: 5/5, 12/12, 100/100.</p></div>
+<div class="card"><h3>No leakage</h3><p class="lead" style="font-size:27px;">The label is never asserted in the ontology. It appears only in the example lists of each .conf file.</p></div>
+</div>
+<div class="row">
+<div class="card"><h3>Splits</h3><p class="lead" style="font-size:27px;">Leave-one-out for 10 and 24 trains, stratified 5-fold for 200. The baselines use the same folds.</p></div>
+<div class="card"><h3>Hypothesis language</h3><p class="lead" style="font-size:27px;">ALC(D) with ⊓ ⊔ ¬ ∃ ∀, ≥n / ≤n and ∃d.[range]. Length: atom = 1, ∃r.C = 2 + |C|.</p></div>
+</div>
+<p class="small" style="margin-top:32px;">Test evaluation: we take DL-Learner’s best concept and classify the held-out trains with our own closed-world evaluator, which reproduces DL-Learner’s training accuracies exactly.</p>
+<div class="foot"><p>Team 6 · Concept Induction on Michalski’s Trains</p><p class="pnum"></p></div>
+<aside>Step three of the brief: the learning problem. Positives are the eastbound trains, or the OK trains for Michie's set; negatives are the rest, and all sets are balanced. To avoid leakage, the label is never written into the ontology; it only appears in the example lists of the configuration files. For the small real sets we use leave-one-out, and for the synthetic sets stratified five-fold cross-validation, with exactly the same folds for the baselines. The hypothesis language is ALC with numeric data restrictions and number restrictions. Because DL-Learner only reports training accuracy, we classify the held-out trains ourselves with an evaluator that uses the same closed-world semantics as DL-Learner's reasoner.</aside>
+</section>

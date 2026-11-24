@@ -1,17 +1,22 @@
 <section id="takeaways">
-<p class="eyebrow">TAKEAWAYS</p>
-<h2 class="title">What each approach gave us</h2>
-<div class="row" style="margin:0 0 64px;">
+<p class="eyebrow">STEP 6 · SYMBOLIC VS BASELINE, AND LIMITS</p>
+<h2 class="title" style="margin:0 0 40px;">What each approach gave us</h2>
+<div class="row" style="margin:0 0 40px;">
 <div class="card dl"><h3>Concept induction</h3>
-<p class="tick">“Some wagon is …” is one ∃, whatever the number of wagons</p>
-<p class="tick">Finds the true rule from 9 examples</p>
-<p class="tick">Short, exact rules an expert recognises</p></div>
+<p class="tick" style="font-size:30px;">“Some wagon is …” is one ∃, whatever the number of wagons</p>
+<p class="tick" style="font-size:30px;">Finds the true rule from 9 examples</p>
+<p class="tick" style="font-size:30px;">Short, exact rules an expert recognises</p></div>
 <div class="card ml"><h3>Decision trees and forests</h3>
-<p class="tick">Train in milliseconds, no tuning</p>
-<p class="tick">No hard expressivity wall</p>
-<p class="tick">No need to know the noise level</p></div>
+<p class="tick" style="font-size:30px;">Train in milliseconds, no tuning</p>
+<p class="tick" style="font-size:30px;">No hard expressivity wall</p>
+<p class="tick" style="font-size:30px;">No need to know the noise level</p></div>
 </div>
-<p class="lead">Its success depends on the bias we choose: the language, the noise level, the closed-world assumption, and whether the rule can be written at all.</p>
-<p class="small" style="margin-top:28px;">Code, ontologies and all .conf files: github.com/khazarmammadov/trains-dl</p>
-<aside>To conclude. Concept induction gave us the relational bias for free: "some wagon is short and closed" is a single existential restriction, whatever the number or order of wagons. It recovers the true rule from nine examples, and its rules are short, exact and match what humans wrote. The baselines are fast and need no tuning, have no hard expressivity wall, and don't need to be told the noise level. Overall, symbolic learning works very well, but only with the right bias: language, noise level, closed-world assumption, and a target that is expressible at all. Everything is in our repository. Thank you, we are happy to take questions.</aside>
+<h3 style="font-size:36px; margin:0 0 16px;">Limits</h3>
+<div class="row" style="gap:32px;">
+<div class="col" style="flex:1; gap:8px;"><p class="tick" style="font-size:26px;"><b>Expressivity.</b> Michie’s official rule (“two adjacent short wagons with the <i>same</i> load shape”) needs a shared variable that ALC lacks.</p></div>
+<div class="col" style="flex:1; gap:8px;"><p class="tick" style="font-size:26px;"><b>Bias.</b> Results depend on the language, the noise %, and the closed-world assumption for ∀ and ¬.</p></div>
+<div class="col" style="flex:1; gap:8px;"><p class="tick" style="font-size:26px;"><b>Small data.</b> With 10 or 24 trains, one train is 10 or 4 points of accuracy.</p></div>
+</div>
+<div class="foot"><p>Team 6 · Concept Induction on Michalski’s Trains</p><p class="pnum"></p></div>
+<aside>To conclude. Concept induction gave us the relational bias for free: "some wagon is short and closed" is a single existential restriction, whatever the number or order of wagons. It recovers the true rule from nine examples, and its rules are short, exact and match what humans wrote. The baselines are fast and need no tuning, have no hard expressivity wall, and don't need to be told the noise level. The limits: Michie's official rule needs "the same load shape" on two wagons, a shared variable that ALC cannot express, so no setting finds it. Results depend on the bias we choose, and with ten or twenty-four trains each train is many accuracy points. Overall, symbolic learning works very well, but only with the right bias and a target that is expressible at all. Thank you, we are happy to take questions.</aside>
 </section>
