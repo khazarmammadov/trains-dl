@@ -1,11 +1,16 @@
-"""Render report/report.md to report/report.pdf (Markdown -> HTML -> headless Chrome).
+"""Render report/report.md to report/report.pdf.
 
-No LaTeX needed: math in the report is written with Unicode symbols.
-Usage: python src/md_to_pdf.py [path/to/chrome]
+Default engine: pandoc + Typst (brew install pandoc typst), styled by
+report/typst-style.typ. Fallback (--chrome): Markdown -> HTML -> headless Chrome.
+Math in the report is written with Unicode symbols, so no LaTeX is needed.
+
+Usage: python src/md_to_pdf.py            # pandoc + typst
+       python src/md_to_pdf.py --chrome   # headless Chrome
 """
 from __future__ import annotations
 
 import re
+import shutil
 import subprocess
 import sys
 from pathlib import Path
@@ -52,8 +57,64 @@ def front_matter(text: str) -> tuple[dict, str]:
     return meta, text[m.end():]
 
 
+def pandoc_markdown(text: str) -> str:
+    """Adapt report.md for pandoc's Typst writer: raw HTML formulas -> Typst
+    blocks, figure captions -> image alt text, image paths -> repo-relative."""
+    text = re.sub(r'<p class="formula">(.*?)</p>',
+                  lambda m: f"```{{=typst}}\n#align(center)[#text(size: 11.5pt)[{m.group(1)}]]\n```",
+                  text)
+    # "*Figure 1 – text*" under an image -> the image's caption (Typst numbers it)
+    text = re.sub(r"!\[[^\]]*\]\(\.\./([^)]+)\)\n\n\*Figure \d+ – ([^*]+)\*",
+                  lambda m: f"![{m.group(2).strip()[:1].upper() + m.group(2).strip()[1:]}]({m.group(1)}){{width=100%}}",
+                  text)
+    return _size_table_columns(text)
+
+
+def _size_table_columns(text: str) -> str:
+    """Pandoc sets pipe-table column widths from the dashes of the separator
+    row; size them to each column's longest cell and left-align."""
+    lines, out, i = text.split("\n"), [], 0
+    while i < len(lines):
+        if lines[i].startswith("|") and i + 1 < len(lines) and re.fullmatch(r"\|(\s*:?-+:?\s*\|)+", lines[i + 1]):
+            j = i + 2
+            while j < len(lines) and lines[j].startswith("|"):
+                j += 1
+            rows = [lines[i]] + lines[i + 2:j]
+            cells = [[c.strip() for c in r.strip().strip("|").split("|")] for r in rows]
+            ncol = len(cells[0])
+            width = [max(3, max(len(re.sub(r"[*`]", "", r[k])) for r in cells if k < len(r)))
+                     for k in range(ncol)]
+            out += [lines[i], "|" + "|".join(":" + "-" * w for w in width) + "|"] + lines[i + 2:j]
+            i = j
+        else:
+            out.append(lines[i])
+            i += 1
+    return "\n".join(out)
+
+
+def build_typst() -> None:
+    pandoc, typst = shutil.which("pandoc"), shutil.which("typst")
+    if not (pandoc and typst):
+        sys.exit("pandoc/typst not found: brew install pandoc typst, or use --chrome")
+    tmp = ROOT / "report_build.md"  # at the repo root so image paths resolve
+    tmp.write_text(pandoc_markdown((REPORT / "report.md").read_text()))
+    try:
+        subprocess.run([pandoc, str(tmp.name), "-o", str(REPORT / "report.pdf"),
+                        "--pdf-engine=typst", f"--pdf-engine-opt=--root={ROOT}",
+                        "--metadata-file", str(REPORT / "pandoc-meta.yaml"),
+                        "--include-before-body", str(REPORT / "typst-style.typ")],
+                       cwd=ROOT, check=True)
+    finally:
+        tmp.unlink(missing_ok=True)
+    print(f"wrote {REPORT / 'report.pdf'} (pandoc + typst)")
+
+
 def main() -> None:
-    chrome = sys.argv[1] if len(sys.argv) > 1 else CHROME
+    if "--chrome" not in sys.argv:
+        build_typst()
+        return
+    args = [a for a in sys.argv[1:] if a != "--chrome"]
+    chrome = args[0] if args else CHROME
     meta, body = front_matter((REPORT / "report.md").read_text())
     html_body = markdown.markdown(body, extensions=["tables", "sane_lists"])
     # a paragraph that is *only* italic text ("*Figure 1 – ...*") is a caption
