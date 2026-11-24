@@ -1,0 +1,12 @@
+setting,dataset,fold,n_train,n_test,concept,concept_dl,length,depth,train_acc,tp,tn,fp,fn,wall_s,tested,test_pred,error
+celoe_alc,michalski10,fold00,9,1,hasCar some (ClosedCar and ShortCar),∃hasCar.(ClosedCar ⊓ ShortCar),5,2,1.0,1,0,0,0,7.65,35770,trainA:1,
+celoe_alc,michalski10,fold01,9,1,hasCar some (ClosedCar and ShortCar),∃hasCar.(ClosedCar ⊓ ShortCar),5,2,1.0,1,0,0,0,7.87,31728,trainB:1,
+celoe_alc,michalski10,fold02,9,1,hasCar some (ClosedCar and ShortCar),∃hasCar.(ClosedCar ⊓ ShortCar),5,2,1.0,1,0,0,0,7.67,34183,trainC:1,
+celoe_alc,michalski10,fold03,9,1,hasCar some (ClosedCar and ShortCar),∃hasCar.(ClosedCar ⊓ ShortCar),5,2,1.0,1,0,0,0,7.4,21962,trainD:1,
+celoe_alc,michalski10,fold04,9,1,hasCar some (ClosedCar and ShortCar),∃hasCar.(ClosedCar ⊓ ShortCar),5,2,1.0,1,0,0,0,7.31,20262,trainE:1,
+celoe_alc,michalski10,fold05,9,1,hasCar some (ClosedCar and ShortCar),∃hasCar.(ClosedCar ⊓ ShortCar),5,2,1.0,0,1,0,0,7.35,17517,trainF:0,
+celoe_alc,michalski10,fold06,9,1,hasCar some (ClosedCar and ShortCar),∃hasCar.(ClosedCar ⊓ ShortCar),5,2,1.0,0,1,0,0,7.28,19264,trainG:0,
+celoe_alc,michalski10,fold07,9,1,hasCar some (ClosedCar and ShortCar),∃hasCar.(ClosedCar ⊓ ShortCar),5,2,1.0,0,1,0,0,8.68,24250,trainH:0,
+celoe_alc,michalski10,fold08,9,1,hasCar min 3 (not (JaggedTopCar)),≥3 hasCar.¬JaggedTopCar,5,2,1.0,0,0,1,0,8.73,18740,trainI:1,
+celoe_alc,michalski10,fold09,9,1,hasCar some (ClosedCar and ShortCar),∃hasCar.(ClosedCar ⊓ ShortCar),5,2,1.0,0,1,0,0,8.75,48346,trainJ:0,
+celoe_alc,michalski10,full,10,0,hasCar some (ClosedCar and ShortCar),∃hasCar.(ClosedCar ⊓ ShortCar),5,2,1.0,,,,,7.74,29684,,
